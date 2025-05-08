@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <runestone-services version="7.6.2"/>
+  <default-language>python</default-language>
+  <library-metadata publisher="pretext">
+    <title>Open Source</title>
+    <subtitle>What It Is and How to Contribute</subtitle>
+    <author>Dr. Jan Pearce</author>
+    <document-id edition="1">opensource</document-id>
+    <shelf>Misc</shelf>
+    <blurb>
+This book is designed for instructors, formal students, and self-learners. It explains what open source software is and teaches the basic skills of open source development incrementally, through real involvement in meaningful projects.
+</blurb>
+  </library-metadata>
+  <latex-macros>
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+</latex-macros>
+  <webwork-version major="" minor=""/>
+  <chapter>
+    <id>ch_intro_oss</id>
+    <title>Introduction to Open Source Software (OSS)</title>
+    <subchapter>
+      <id>sec_oss_what_it_is</id>
+      <title>What is Open Source Software?</title>
+      <question>
+        <label>Checkpoint 1.1.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_whatisOSS" data-multipleanswers="false">
+                <div class="para" id="whatisOSS-1-1">What is the primary characteristic of Open Source Software (OSS)?</div>
+                <li data-component="answer" id="opensource_1_whatisOSS_opt_a">
+                  <div class="para" id="whatisOSS-2-1-1-1">It is software developed for educational purposes.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_whatisOSS_opt_a">
+                  <div class="para" id="whatisOSS-2-1-2-1">Open Source Software is developed many purposes, not limited only to education.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_whatisOSS_opt_b">
+                  <div class="para" id="whatisOSS-2-2-1-1">It is available for free without licensing restrictions.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_whatisOSS_opt_b">
+                  <div class="para" id="whatisOSS-2-2-2-1">While it is true that many Open Source Software (OSS) projects are available for free, each typically comes with a specific license that grants users specific rights.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_whatisOSS_opt_c" data-correct="">
+                  <div class="para" id="whatisOSS-2-3-1-1">The source code is publicly accessible for viewing.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_whatisOSS_opt_c">
+                  <div class="para" id="whatisOSS-2-3-2-1">Correct!  Open source software (OSS) is software that is designed with code that is publicly accessible and openly viewed.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_whatisOSS_opt_d">
+                  <div class="para" id="whatisOSS-2-4-1-1">It can only be used on open, non-commercial projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_whatisOSS_opt_d">
+                  <div class="para" id="whatisOSS-2-4-2-1">In fact, Open Source Software is often utilized for commercial projects, and many businesses leverage open-source software as a cost-effective solution to building their products.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_matters</id>
+      <title>Why OSS Matters</title>
+      <question>
+        <label>Checkpoint 1.2.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OssMatters" data-multipleanswers="true" data-random="">
+                <div class="para" id="OssMatters-1-1">Why is it advantageous for students and independent learners to engage with Open Source Software (OSS) projects? SELECT ALL THAT APPLY</div>
+                <li data-component="answer" id="opensource_1_OssMatters_opt_a" data-correct="">
+                  <div class="para" id="OssMatters-2-1-1-1">OSS projects offer real-world software development experience.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters_opt_a">
+                  <div class="para" id="OssMatters-2-1-2-1">Engaging with OSS projects allows students and independent learners to work on real-world software development projects, gain practical experience, and contribute to widely-used software.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters_opt_b" data-correct="">
+                  <div class="para" id="OssMatters-2-2-1-1">OSS projects present unique challenges for developers due to their diverse nature, fostering an enriching learning experience.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters_opt_b">
+                  <div class="para" id="OssMatters-2-2-2-1">OSS projects often present unique challenges, such as collaborating with geographically dispersed teams and contributing to a diverse range of projects, which further enrich the learning experience for developers.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters_opt_c">
+                  <div class="para" id="OssMatters-2-3-1-1">Students often get paid internships by OSS companies for their work.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters_opt_c">
+                  <div class="para" id="OssMatters-2-3-2-1">This is not a guaranteed advantage for all students and independent learners.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters_opt_d">
+                  <div class="para" id="OssMatters-2-4-1-1">Students can claim partial ownership of the OSS projects they contribute to.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters_opt_d">
+                  <div class="para" id="OssMatters-2-4-2-1">Ownership in OSS projects works differently than in traditional proprietary software. While students couldn’t claim OSS Project’s ownership, they may gain recognition for their contributions.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+      <question>
+        <label>Checkpoint 1.2.3 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OssMatters2" data-multipleanswers="false" data-random="">
+                <div class="para" id="OssMatters2-1-1">What type of software is generally more secure?</div>
+                <li data-component="answer" id="opensource_1_OssMatters2_opt_a">
+                  <div class="para" id="OssMatters2-2-1-1-1">Proprietary, because proprietary source code is not open to the public and cannot be easily modified.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters2_opt_a">
+                  <div class="para" id="OssMatters2-2-1-2-1">Even though proprietary software’s source code is not shared with the public, it is not ensured that the security will be managed efficiently.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters2_opt_b">
+                  <div class="para" id="OssMatters2-2-2-1-1">Open source, because open source software is more transparent compared to proprietary software, allowing developers to respond to bugs more rapidly and efficiently.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters2_opt_b">
+                  <div class="para" id="OssMatters2-2-2-2-1">Despite the nature of open source that allows the public to access the source code, that doesn’t mean open-source software is more reliable and could still hold some security threats to users.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters2_opt_c">
+                  <div class="para" id="OssMatters2-2-3-1-1">Proprietary, because proprietary software is strictly managed by a single organization so that it will ensure the software’s security.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters2_opt_c">
+                  <div class="para" id="OssMatters2-2-3-2-1">Contrary to popular belief, this leads to more vulnerabilities as it is difficult for a single entity to keep track of every aspect of the product.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters2_opt_d">
+                  <div class="para" id="OssMatters2-2-4-1-1">Open source, because open source software needs a warranty to be protected from security threats.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters2_opt_d">
+                  <div class="para" id="OssMatters2-2-4-2-1">Open source software typically doesn’t come with a warranty, but licenses that grant users the freedom to view, modify, and distribute the source code.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssMatters2_opt_e" data-correct="">
+                  <div class="para" id="OssMatters2-2-5-1-1">While open-source software seems inherently more secure, both open-source software and proprietary software pose possible challenges to software security.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssMatters2_opt_e">
+                  <div class="para" id="OssMatters2-2-5-2-1">Yes, while OSS can be considered to be more transparent, it isn’t inherently less secure than their proprietary counterparts!</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_source_code</id>
+      <title>About Source Code</title>
+      <question>
+        <label>ActiveCode</label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone explainer ac_section ">
+              <div data-component="activecode" id="opensource_1_ex_c_prog">
+                <textarea data-lang="c" data-audio="" data-coach="true" style="visibility: hidden;" id="opensource_1_ex_c_prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#include &lt;stdio.h&gt;
+int main() { 
+  for(int i=0; i&lt;100; i++) { 
+    printf ("Hello World!\n"); 
+  } 
+  return 0;
+}
+</textarea>
+              </div>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+      <question>
+        <label>Checkpoint 1.3.3 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OssSourceCode" data-multipleanswers="false">
+                <div class="para" id="OssSourceCode-1-1">Are there any potential legal considerations and limitations regarding decompilation and reverse engineering in relation to copyright laws?</div>
+                <li data-component="answer" id="opensource_1_OssSourceCode_opt_a">
+                  <div class="para" id="OssSourceCode-2-1-1-1">Yes, decompilation is generally prohibited under copyright laws, regardless of the purpose or extent.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssSourceCode_opt_a">
+                  <div class="para" id="OssSourceCode-2-1-2-1">Although it is true that generally, decompilation is regulated under copyright laws, it can be done under certain conditions.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssSourceCode_opt_b">
+                  <div class="para" id="OssSourceCode-2-2-1-1">No, decompilation is usually permitted under most copyright laws as long as it is for commercial purposes.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssSourceCode_opt_b">
+                  <div class="para" id="OssSourceCode-2-2-2-1">Even though decompilation is permitted under most copyright laws, it is not limited to commercial uses only.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssSourceCode_opt_c" data-correct="">
+                  <div class="para" id="OssSourceCode-2-3-1-1">Yes, decompilation is allowed only for specific purposes and to a limited extent under some copyright laws.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssSourceCode_opt_c">
+                  <div class="para" id="OssSourceCode-2-3-2-1">Yes, to be in compliance with the law, one must consider the copyright before undertaking decompilation. It is permitted to a limited extent and for limited specific purposes.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OssSourceCode_opt_d">
+                  <div class="para" id="OssSourceCode-2-4-1-1">No, decompilation is allowed under any circumstance as long as it holds no security concerns and potential security benefits.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OssSourceCode_opt_d">
+                  <div class="para" id="OssSourceCode-2-4-2-1">Decompilation is not allowed under all circumstances, even though it holds no security threats. Decompilation must align with copyright laws before being carried out.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_share_code</id>
+      <title>On Sharing Source Code</title>
+      <question>
+        <label>Checkpoint 1.4.4 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_Sharecode" data-multipleanswers="true" data-random="">
+                <div class="para" id="Sharecode-1-1">What are some of the advantages of sharing source code in the context of open-source software (OSS) development? CHECK ALL THAT APPLY</div>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_a" data-correct="">
+                  <div class="para" id="Sharecode-2-1-1-1">Shared development costs</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_a">
+                  <div class="para" id="Sharecode-2-1-2-1">The cost of writing and maintaining the software can be spread out over several individuals and/or companies.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_b">
+                  <div class="para" id="Sharecode-2-2-1-1">Sharing source code prevents stakeholders from ethical benefits</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_b">
+                  <div class="para" id="Sharecode-2-2-2-1">Sharing source code embraces the open-source community’s value of sharing. It benefits individuals in terms of making meaningful collaboration and building a better community for everyone.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_c" data-correct="">
+                  <div class="para" id="Sharecode-2-3-1-1">Users can fix their bugs.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_c">
+                  <div class="para" id="Sharecode-2-3-2-1">OSS allows users to find and fix their own software issues but it also means that users can find other people to fix their bugs for them</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_d" data-correct="">
+                  <div class="para" id="Sharecode-2-4-1-1">Potentially better and more secure software.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_d">
+                  <div class="para" id="Sharecode-2-4-2-1">Allowing users to fix bugs can often lead to better and potentially more secure software because there is no limit to the number of people who could participate in OSS projects, compared to the proprietary software.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_e">
+                  <div class="para" id="Sharecode-2-5-1-1">Software that is built on top of open-source software cannot be sold as proprietary software.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_e">
+                  <div class="para" id="Sharecode-2-5-2-1">Open source software can be sold as proprietary as long as it follows the licenses approved by the Open Source initiative. Some open-source licenses allow combining open-source code with proprietary code, allowing commercial use and distribution under certain conditions.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_f" data-correct="">
+                  <div class="para" id="Sharecode-2-6-1-1">Software that outlives its creator</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_f">
+                  <div class="para" id="Sharecode-2-6-2-1">People could stop working on an open-source project but as long as the source code is available to the public, the software still has a chance to be rebuilt.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_g">
+                  <div class="para" id="Sharecode-2-7-1-1">Users could distribute the source code free of cost.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_g">
+                  <div class="para" id="Sharecode-2-7-2-1">Although the source code is free to be viewed by the public, not all open-source software is free of cost. Authorized people could still charge you if you want to make a copy or modify their source code.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Sharecode_opt_h" data-correct="">
+                  <div class="para" id="Sharecode-2-8-1-1">Freedom to fork and take a project in a new direction.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Sharecode_opt_h">
+                  <div class="para" id="Sharecode-2-8-2-1">Although proprietary software cannot be forked, OSS guarantees everybody the right to redistribute and modify the source code, developers can always take an OSS project and move it into a new direction, without anybody’s permission.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_contributor_mountain</id>
+      <title>Climbing Contributor Mountain</title>
+      <question>
+        <label>Checkpoint 1.5.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_contributormountain1" data-multipleanswers="false" data-random="">
+                <div class="para" id="contributormountain1-1-1">Which of the following statements best describes the relationship between users and contributors in OSS projects?</div>
+                <li data-component="answer" id="opensource_1_contributormountain1_opt_a">
+                  <div class="para" id="contributormountain1-2-1-1-1">Users are not considered part of the development process of OSS projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributormountain1_opt_a">
+                  <div class="para" id="contributormountain1-2-1-2-1">Actually, users play a significant role in the OSS community beyond just using the software</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributormountain1_opt_b">
+                  <div class="para" id="contributormountain1-2-2-1-1">Contributors solely rely on users for their contributions.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributormountain1_opt_b">
+                  <div class="para" id="contributormountain1-2-2-2-1">Even though user contributions are very important, contributors don’t solely rely on them.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributormountain1_opt_c">
+                  <div class="para" id="contributormountain1-2-3-1-1">Users and contributors have distinct roles and do not interact.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributormountain1_opt_c">
+                  <div class="para" id="contributormountain1-2-3-2-1">Users and contributors could still interact despite different responsibilities, such as users could give feedback to contributors about the software. In fact, this kind of interaction is common in OSS projects.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributormountain1_opt_d" data-correct="">
+                  <div class="para" id="contributormountain1-2-4-1-1">Users can become contributors and actively participate in OSS projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributormountain1_opt_d">
+                  <div class="para" id="contributormountain1-2-4-2-1">Correct! In OSS projects, users are encouraged to become contributors and actively participate in the development process.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+      <question>
+        <label>Checkpoint 1.5.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_contributorMountain2" data-multipleanswers="false" data-random="">
+                <div class="para" id="contributorMountain2-1-1">In an OSS community, which of the following stages does a user typically transition through?</div>
+                <li data-component="answer" id="opensource_1_contributorMountain2_opt_a">
+                  <div class="para" id="contributorMountain2-2-1-1-1">Seeker → User → Developer → Contributor</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributorMountain2_opt_a">
+                  <div class="para" id="contributorMountain2-2-1-2-1">Developer is not part of the typical progression a user undergoes in an OSS community. Also, one is a User before becoming a Seeker.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributorMountain2_opt_b">
+                  <div class="para" id="contributorMountain2-2-2-1-1">Beneficiary → Seeker → Collaborator → Contributor</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributorMountain2_opt_b">
+                  <div class="para" id="contributorMountain2-2-2-2-1">Beneficiary is not a part of the Contributor Mountain.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributorMountain2_opt_c" data-correct="">
+                  <div class="para" id="contributorMountain2-2-3-1-1">User → Seeker → Collaborator → Contributor</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributorMountain2_opt_c">
+                  <div class="para" id="contributorMountain2-2-3-2-1">Correct! People usually start by being a user and keeps transitioning until they become a contributor.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_contributorMountain2_opt_d">
+                  <div class="para" id="contributorMountain2-2-4-1-1">User → Seeker → Collaborator → Developer</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_contributorMountain2_opt_d">
+                  <div class="para" id="contributorMountain2-2-4-2-1">Developer is not part of the Contributor Mountain.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_build_portfolio</id>
+      <title>Building your OSS Portfolio</title>
+      <question>
+        <label>Checkpoint 1.6.3 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OSSPortfolio1" data-multipleanswers="false" data-random="">
+                <div class="para" id="OSSPortfolio1-1-1">In the context of the text, what should be the primary focus while contributing to an OSS project?</div>
+                <li data-component="answer" id="opensource_1_OSSPortfolio1_opt_a">
+                  <div class="para" id="OSSPortfolio1-2-1-1-1">Building your portfolio.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSPortfolio1_opt_a">
+                  <div class="para" id="OSSPortfolio1-2-1-2-1">Building your portfolio shouldn’t be your primary focus while working on an OSS project as your portfolio will build itself if the project achieves its goals.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSPortfolio1_opt_b">
+                  <div class="para" id="OSSPortfolio1-2-2-1-1">Networking with project leaders.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSPortfolio1_opt_b">
+                  <div class="para" id="OSSPortfolio1-2-2-2-1">While networking can be beneficial, it is not the primary focus mentioned in the text when contributing to an OSS project.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSPortfolio1_opt_c">
+                  <div class="para" id="OSSPortfolio1-2-3-1-1">Seeking job offers.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSPortfolio1_opt_c">
+                  <div class="para" id="OSSPortfolio1-2-3-2-1">Contributing to OSS projects can open up job opportunities, this should not be your main reason to collaborate with the OSS community.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSPortfolio1_opt_d" data-correct="">
+                  <div class="para" id="OSSPortfolio1-2-4-1-1">Working hard on a project that matters to you.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSPortfolio1_opt_d">
+                  <div class="para" id="OSSPortfolio1-2-4-2-1">Correct! If you choose a project that matters to you, and if you work hard to help that project achieve its goals, then you also achieve all of the above.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_community</id>
+    <title>OSS Community and Communication</title>
+    <subchapter>
+      <id>sec_community_global</id>
+      <title>The Challenges of Global Community</title>
+      <question>
+        <label>Checkpoint 2.1.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OSScontribution" data-multipleanswers="false">
+                <div class="para" id="OSScontribution-1-1">Why is it important for contributors to read the contribution guide and community discussions before joining an open-source project?</div>
+                <li data-component="answer" id="opensource_1_OSScontribution_opt_a">
+                  <div class="para" id="OSScontribution-2-1-1-1">To better understand the existing codebase.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSScontribution_opt_a">
+                  <div class="para" id="OSScontribution-2-1-2-1">While understanding the codebase is crucial, there’s another primary reason for reading the contribution guide and community discussions.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSScontribution_opt_b">
+                  <div class="para" id="OSScontribution-2-2-1-1">To identify potential job opportunities within the project.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSScontribution_opt_b">
+                  <div class="para" id="OSScontribution-2-2-2-1">Although contributing to an open-source project can enhance career prospects, the primary purpose of reading the contribution guide and community discussions is different.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSScontribution_opt_c" data-correct="">
+                  <div class="para" id="OSScontribution-2-3-1-1">To avoid violating implicit or explicit rules.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSScontribution_opt_c">
+                  <div class="para" id="OSScontribution-2-3-2-1">Absolutely! Reading the contribution guide and community discussions helps contributors understand the project’s established rules, best practices, and community norms, preventing unintentional violations and fostering a positive collaboration experience.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSScontribution_opt_d">
+                  <div class="para" id="OSScontribution-2-4-1-1">To find out how to access to early-release project features.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSScontribution_opt_d">
+                  <div class="para" id="OSScontribution-2-4-2-1">The availability of early-release project features is not directly tied to reading the contribution guide or community discussions. The primary focus of these resources is different.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSScontribution_opt_e">
+                  <div class="para" id="OSScontribution-2-5-1-1">Both A and C are correct.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSScontribution_opt_e">
+                  <div class="para" id="OSScontribution-2-5-2-1">Incorrect!</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_oss_third_culture</id>
+      <title>The Synthetic Third Culture</title>
+      <question>
+        <label>Checkpoint 2.2.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_OSSculture" data-multipleanswers="false" data-random="">
+                <div class="para" id="OSSculture-1-1">How do OSS communities develop their own culture, distinct from the native cultures of their participants?</div>
+                <li data-component="answer" id="opensource_1_OSSculture_opt_a">
+                  <div class="para" id="OSSculture-2-1-1-1">By assimilating the dominant culture of the project maintainers and contributors, creating a sense of coherence within the community.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSculture_opt_a">
+                  <div class="para" id="OSSculture-2-1-2-1">While coherence is important, there are more inclusive ways in which culture may be formed.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSculture_opt_b">
+                  <div class="para" id="OSSculture-2-2-1-1">By mixing cultural differences among participants to achieve better collaboration.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSculture_opt_b">
+                  <div class="para" id="OSSculture-2-2-2-1">While collaboration is significant, think about how OSS cultural development might involve more than just mixing difference.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSculture_opt_c" data-correct="">
+                  <div class="para" id="OSSculture-2-3-1-1">By building up shared experiences, humor, social norms, and conventions.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSculture_opt_c">
+                  <div class="para" id="OSSculture-2-3-2-1">Absolutely right! OSS communities develop their own culture by building up shared experiences, humor, social norms, and conventions. Over time, the participants in these communities create a synthetic third culture that becomes unique to the collaborative group.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_OSSculture_opt_d">
+                  <div class="para" id="OSSculture-2-4-1-1">By rotating community members between different cultural contexts.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_OSSculture_opt_d">
+                  <div class="para" id="OSSculture-2-4-2-1">While interactions and diversity are significant in OSS communities, consider how the culture formation might involve shared experiences and interactions.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_community_qualities</id>
+      <title>Qualities of an OSS Community</title>
+      <question>
+        <label>Checkpoint 2.3.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_communityQualities" data-multipleanswers="false">
+                <div class="para" id="communityQualities-1-1">What aspect is essential to consider regarding the maturity of an OSS community and its history?</div>
+                <li data-component="answer" id="opensource_1_communityQualities_opt_a">
+                  <div class="para" id="communityQualities-2-1-1-1">The number of different skills represented among community members.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_communityQualities_opt_a">
+                  <div class="para" id="communityQualities-2-1-2-1">While representation matters in OSS community, it is an essential aspect when considering the maturity of an OSS community.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_communityQualities_opt_b">
+                  <div class="para" id="communityQualities-2-2-1-1">The extent to which subgroups are formally defined within the community.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_communityQualities_opt_b">
+                  <div class="para" id="communityQualities-2-2-2-1">While subgroups can be an essential part of an OSS community, it doesn’t affect the maturity and history of the community.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_communityQualities_opt_c" data-correct="">
+                  <div class="para" id="communityQualities-2-3-1-1">Whether the community has attracted contributors beyond developers, and the potential for growth and rejuvenation.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_communityQualities_opt_c">
+                  <div class="para" id="communityQualities-2-3-2-1">Absolutely right! The maturity and history of an OSS community can be evaluated by considering whether it has attracted contributors beyond developers, and if it has experienced periods of growth, stability, stagnation, and rejuvenation.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_communityQualities_opt_d">
+                  <div class="para" id="communityQualities-2-4-1-1">The presence of a sponsoring company and the level of influence it holds over the community’s direction.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_communityQualities_opt_d">
+                  <div class="para" id="communityQualities-2-4-2-1">Sponsoring companies may affect the community’s direction in terms of commercial ties but it does not influence directly the maturity and history of OSS community.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_community_communication</id>
+      <title>OSS Community Communication</title>
+      <question>
+        <label>Checkpoint 2.4.11 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_Why-SECP" data-multipleanswers="false" data-random="">
+                <div class="para" id="Why-SECP-1-1">Which of the following features are commonly provided by Software Engineering Collaboration Platforms (SECP) used in open-source communities?</div>
+                <li data-component="answer" id="opensource_1_Why-SECP_opt_a">
+                  <div class="para" id="Why-SECP-2-1-1-1">Document editing and file management</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Why-SECP_opt_a">
+                  <div class="para" id="Why-SECP-2-1-2-1">This option is not specific to SECP features and does not encompass the functionalities mentioned in the section.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Why-SECP_opt_b">
+                  <div class="para" id="Why-SECP-2-2-1-1">Mailing list and forum integration</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Why-SECP_opt_b">
+                  <div class="para" id="Why-SECP-2-2-2-1">While mailing lists and forum integration are mentioned in the text, they are not exclusive to SECP features.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Why-SECP_opt_c" data-correct="">
+                  <div class="para" id="Why-SECP-2-3-1-1">Repositories and merge requests</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Why-SECP_opt_c">
+                  <div class="para" id="Why-SECP-2-3-2-1">Correct! Software Engineering Collaboration Platforms (SECP) typically provide features such as repositories for code storage and merge requests to initiate code integration.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Why-SECP_opt_d">
+                  <div class="para" id="Why-SECP-2-4-1-1">Collaborative instant messaging and wikis</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Why-SECP_opt_d">
+                  <div class="para" id="Why-SECP-2-4-2-1">While collaborative instant messaging and wikis are mentioned in the text, they are not exclusive to SECP features.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_dev_env</id>
+    <title>OSS Development Environment</title>
+    <subchapter>
+      <id>sec_dev_shell</id>
+      <title>Using the Command Line</title>
+      <question>
+        <label>Checkpoint 3.1.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_ShellTerms" data-multipleanswers="false" data-random="">
+                <div class="para" id="ShellTerms-1-1">What is the primary purpose of a Command Line Interface (CLI) in computing?</div>
+                <li data-component="answer" id="opensource_1_ShellTerms_opt_a">
+                  <div class="para" id="ShellTerms-2-1-1-1">To provide a graphical user interface for software developers.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_ShellTerms_opt_a">
+                  <div class="para" id="ShellTerms-2-1-2-1">A Command Line Interface (CLI) is different from a graphical user interface (GUI) and involves text-based commands instead of graphical elements.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_ShellTerms_opt_b">
+                  <div class="para" id="ShellTerms-2-2-1-1">To enhance user experience by offering a wide range of customizable options not found in Graphical User Interfaces (GUIs).</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_ShellTerms_opt_b">
+                  <div class="para" id="ShellTerms-2-2-2-1">While a CLI offers powerful features, its primary purpose is not specifically about enhancing user experience through customization.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_ShellTerms_opt_c" data-correct="">
+                  <div class="para" id="ShellTerms-2-3-1-1">To support input and output from a computer via a keyboard and screen.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_ShellTerms_opt_c">
+                  <div class="para" id="ShellTerms-2-3-2-1">Correct! A Command Line Interface (CLI) allows users to interact with a computer by entering text-based commands and receiving output on a display screen.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_ShellTerms_opt_d">
+                  <div class="para" id="ShellTerms-2-4-1-1">To serve as a physical device that supports hardware connections and programming for a computer.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_ShellTerms_opt_d">
+                  <div class="para" id="ShellTerms-2-4-2-1">A CLI is a software interface and not a physical device. It does not directly involve hardware connections or programming.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_dev_basic_shell_commands</id>
+      <title>Basic Shell Commands</title>
+      <question>
+        <label>Checkpoint 3.2.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone parsons_section" style="max-width: none;">
+              <div data-component="parsons" class="parsons" id="opensource_1_basicShellCommands">
+                <div class="parsons_question parsons-text"><div class="para" id="basicShellCommands-1-1">You have a file named <dfn class="terminology">data.txt</dfn> that contains the following lines:</div><pre class="code-block tex2jax_ignore">apple
+orange
+banana
+grape
+</pre><div class="para" id="basicShellCommands-1-3">Your task is to create a new file named <dfn class="terminology">fruits.txt</dfn> and copy the contents of <dfn class="terminology">data.txt</dfn> to <dfn class="terminology">fruits.txt</dfn>. Next, append the word <code class="code-inline tex2jax_ignore">kiwi</code> to <dfn class="terminology">fruits.txt</dfn>. Then, display the contents of <dfn class="terminology">fruits.txt</dfn> in the terminal. Next, count the number of fruits in <dfn class="terminology">fruits.txt</dfn> and display the total count. Finally, overwrite the content of <dfn class="terminology">data.txt</dfn> with the content of <dfn class="terminology">fruits.txt</dfn> and rename <dfn class="terminology">data.txt</dfn> to a new file named <code class="code-inline tex2jax_ignore">fruits2</code>.</div> <div class="para" id="basicShellCommands-1-4">Here are some commands you may need to perform the task. Rearrange the correct commands in the correct order by dragging and dropping.</div></div>
+                <pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-adaptive="true" data-noindent="true"><div class="para" id="basicShellCommands-2-1-1-1"><code class="code-inline tex2jax_ignore">cat data.txt &gt; fruits.txt</code></div>
+---
+<div class="para" id="basicShellCommands-2-1-2-1"><code class="code-inline tex2jax_ignore">cat data.txt &gt;&gt; fruits.txt</code></div> #paired
+---
+<div class="para" id="basicShellCommands-2-2-1"><code class="code-inline tex2jax_ignore">echo "kiwi" &gt;&gt; fruits.txt</code></div>
+---
+<div class="para" id="basicShellCommands-2-3-1"><code class="code-inline tex2jax_ignore">cat fruits.txt</code></div>
+---
+<div class="para" id="basicShellCommands-2-4-2-1"><code class="code-inline tex2jax_ignore">wc -w &lt; fruits.txt</code></div>
+---
+<div class="para" id="basicShellCommands-2-4-1-1"><code class="code-inline tex2jax_ignore">wc -l &lt; fruits.txt</code></div> #paired
+---
+<div class="para" id="basicShellCommands-2-5-1"><code class="code-inline tex2jax_ignore">cp -i fruits.txt data.txt </code></div>
+---
+<div class="para" id="basicShellCommands-2-6-1"><code class="code-inline tex2jax_ignore">mv data.txt fruits2.txt</code></div>
+---
+<div class="para" id="basicShellCommands-2-7-1"><code class="code-inline tex2jax_ignore">rm data.txt fruits2.txt</code></div> #distractor</pre>
+              </div>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_dev_editors</id>
+      <title>We All Need an Editor!</title>
+      <question>
+        <label>Checkpoint 3.3.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_needAnEditor" data-multipleanswers="false" data-random="">
+                <div class="para" id="needAnEditor-1-1">Which feature in Integrated Development Environments (IDEs) allows developers to analyze the performance of their code?</div>
+                <li data-component="answer" id="opensource_1_needAnEditor_opt_a">
+                  <div class="para" id="needAnEditor-2-1-1-1">Multi-language support</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_needAnEditor_opt_a">
+                  <div class="para" id="needAnEditor-2-1-2-1">Multi-language support will give us the ability to work effectively with a variety of programming languages and their varying syntaxes..</div>
+                </li>
+                <li data-component="answer" id="opensource_1_needAnEditor_opt_b">
+                  <div class="para" id="needAnEditor-2-2-1-1">Code debugger</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_needAnEditor_opt_b">
+                  <div class="para" id="needAnEditor-2-2-2-1">Code debugger detects and diagnoses errors in the code, including variable inspection and setting breakpoints. This feature helps developers identify and fix bugs in their code during the development process.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_needAnEditor_opt_c" data-correct="">
+                  <div class="para" id="needAnEditor-2-3-1-1">Profiling support</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_needAnEditor_opt_c">
+                  <div class="para" id="needAnEditor-2-3-2-1">Correct! This feature enables developers to measure the execution time and resource usage of their code to optimize performance. It helps to analyze the performance of the code.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_needAnEditor_opt_d">
+                  <div class="para" id="needAnEditor-2-4-1-1">Code folding</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_needAnEditor_opt_d">
+                  <div class="para" id="needAnEditor-2-4-2-1">Code folding collapses sections of code to better focus the workspace</div>
+                </li>
+                <li data-component="answer" id="opensource_1_needAnEditor_opt_e">
+                  <div class="para" id="needAnEditor-2-5-1-1">Code refactoring</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_needAnEditor_opt_e">
+                  <div class="para" id="needAnEditor-2-5-2-1">Code refactoring automates code restructuring to improve readability and maintainability.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_dev_virtualization</id>
+      <title>Virtualization</title>
+      <question>
+        <label>Checkpoint 3.4.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecDevVirtualization" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecDevVirtualization-1-1">Which of the following statements is true regarding the benefits of containerization in open-source projects?</div>
+                <li data-component="answer" id="opensource_1_SecDevVirtualization_opt_a">
+                  <div class="para" id="SecDevVirtualization-2-1-1-1">Containers offer a shared virtual environment for all applications, promoting better collaboration and resource utilization by eliminating the need for individual dedicated environments.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDevVirtualization_opt_a">
+                  <div class="para" id="SecDevVirtualization-2-1-2-1">Containers provide isolated environments for applications, not a shared virtual environment. Each container has its own isolated space, which prevents interference between applications.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDevVirtualization_opt_b">
+                  <div class="para" id="SecDevVirtualization-2-2-1-1">The consistent operating system requirement for container images ensures a more stable and secure runtime environment, reducing the risk of unexpected behavior.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDevVirtualization_opt_b">
+                  <div class="para" id="SecDevVirtualization-2-2-2-1">Containers do not require a consistent operating system; they share the host machine’s OS. However, containerization can still lead to a more stable and secure runtime environment due to isolation and standardization.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDevVirtualization_opt_c" data-correct="">
+                  <div class="para" id="SecDevVirtualization-2-3-1-1">Containerization simplifies the development and testing of software by offering a consistent environment across different systems.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDevVirtualization_opt_c">
+                  <div class="para" id="SecDevVirtualization-2-3-2-1">One of the benefits of containerization is that containers provide a consistent environment, which simplifies software development and testing across different systems.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDevVirtualization_opt_d">
+                  <div class="para" id="SecDevVirtualization-2-4-1-1">Containers are especially suitable for running large-scale applications due to their lightweight nature, making them a cost-effective choice for complex projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDevVirtualization_opt_d">
+                  <div class="para" id="SecDevVirtualization-2-4-2-1">While containers are indeed known for their lightweight nature and portability, their suitability for running large-scale applications is not their primary advantage.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_git</id>
+    <title>Version Control with Git</title>
+    <subchapter>
+      <id>git-why-version-control</id>
+      <title>Why Version Control?</title>
+      <question>
+        <label>Checkpoint 4.1.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecGitWhyVersionControl" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecGitWhyVersionControl-1-1">What is the main purpose of using a version control system (VCS) in software development?</div>
+                <li data-component="answer" id="opensource_1_SecGitWhyVersionControl_opt_a">
+                  <div class="para" id="SecGitWhyVersionControl-2-1-1-1">Storing all versions of a project along with comments to explain the changes.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitWhyVersionControl_opt_a">
+                  <div class="para" id="SecGitWhyVersionControl-2-1-2-1">While version control systems do store all versions of a project along with comments to explain the changes, this is just one aspect of their main purpose.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitWhyVersionControl_opt_b">
+                  <div class="para" id="SecGitWhyVersionControl-2-2-1-1">Automatically merging changes from different versions of a document.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitWhyVersionControl_opt_b">
+                  <div class="para" id="SecGitWhyVersionControl-2-2-2-1">While version control systems do assist with merging changes, the process is not always automatic.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitWhyVersionControl_opt_c">
+                  <div class="para" id="SecGitWhyVersionControl-2-3-1-1">Managing the installation and setup of software projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitWhyVersionControl_opt_c">
+                  <div class="para" id="SecGitWhyVersionControl-2-3-2-1">VCS focuses on versioning and collaboration, not installation and setup.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitWhyVersionControl_opt_d" data-correct="">
+                  <div class="para" id="SecGitWhyVersionControl-2-4-1-1">Facilitating collaboration and tracking changes to files over time.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitWhyVersionControl_opt_d">
+                  <div class="para" id="SecGitWhyVersionControl-2-4-2-1">Version Control Systems enable multiple developers to collaborate efficiently and track changes made to files over time.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitWhyVersionControl_opt_e">
+                  <div class="para" id="SecGitWhyVersionControl-2-5-1-1">Providing real-time collaboration and messaging features for developers.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitWhyVersionControl_opt_e">
+                  <div class="para" id="SecGitWhyVersionControl-2-5-2-1">Version control systems do not provide real-time collaboration and messaging features.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_git_getting_started</id>
+      <title>Getting Started with Git</title>
+      <question>
+        <label>Checkpoint 4.2.5 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecGitGettingStarted" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecGitGettingStarted-1-1">What is the purpose of the Git staging area (Git index)?</div>
+                <li data-component="answer" id="opensource_1_SecGitGettingStarted_opt_a">
+                  <div class="para" id="SecGitGettingStarted-2-1-1-1">The Git staging area is a file where committed snapshots of the project are stored along with their associated metadata.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitGettingStarted_opt_a">
+                  <div class="para" id="SecGitGettingStarted-2-1-2-1">This option describes the purpose of the Git repository itself, not specifically the staging area.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitGettingStarted_opt_b">
+                  <div class="para" id="SecGitGettingStarted-2-2-1-1">The Git staging area continuously monitors the resource status of files and the file system in a local repository.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitGettingStarted_opt_b">
+                  <div class="para" id="SecGitGettingStarted-2-2-2-1">This option describes a monitoring function, which is not the main purpose of the Git staging area.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitGettingStarted_opt_c" data-correct="">
+                  <div class="para" id="SecGitGettingStarted-2-3-1-1">The Git staging area is used to selectively add a list of changes that will be part of the next commit.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitGettingStarted_opt_c">
+                  <div class="para" id="SecGitGettingStarted-2-3-2-1">Correct! The Git staging area, also known as the Git index, is used to selectively stage changes to files that will be part of the next commit. It allows developers to control which modifications are included in a commit, helping create clean and organized commits.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecGitGettingStarted_opt_d">
+                  <div class="para" id="SecGitGettingStarted-2-4-1-1">The Git staging area is where all the committed snapshots of the project are stored.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecGitGettingStarted_opt_d">
+                  <div class="para" id="SecGitGettingStarted-2-4-2-1">This option incorrectly states that all committed snapshots of the project are stored in the staging area, whereas the staging area is just a step before creating a commit.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_git_basics</id>
+      <title>Git Basics</title>
+      <question>
+        <label>Checkpoint 4.3.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone parsons_section" style="max-width: none;">
+              <div data-component="parsons" class="parsons" id="opensource_1_GitBasic">
+                <div class="parsons_question parsons-text">
+                  <div class="para" id="GitBasic-1-1">What is the correct order of Git commands to initialize a new repository, add a README, and make the first commit?</div>
+                </div>
+                <pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-noindent="false">git init
+
+---
+git initial
+ #paired
+---
+git add README.md
+
+---
+git stage README.md
+ #paired
+---
+git commit -m "Initial commit"
+
+---
+git commit m- "Initial commit"
+ #paired
+---
+git status
+ #distractor</pre>
+              </div>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_git_branching</id>
+      <title>Git Branching</title>
+      <question>
+        <label>Checkpoint 4.4.11 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_GitBranching" data-multipleanswers="false">
+                <div class="para" id="GitBranching-1-1">Git’s branching model is considered a “killer feature” due to its:</div>
+                <li data-component="answer" id="opensource_1_GitBranching_opt_a" data-correct="">
+                  <div class="para" id="GitBranching-2-1-1-1">Cost-effective branching process, where creating new branches is instant and does not require duplicating the entire project directory.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_GitBranching_opt_a">
+                  <div class="para" id="GitBranching-2-1-2-1">Great job! Git’s branching model allows for efficient and cost-effective branching by creating lightweight branches that do not duplicate the entire project directory.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_GitBranching_opt_b">
+                  <div class="para" id="GitBranching-2-2-1-1">Compatibility with other Version Control Systems, allowing easy migration of repositories.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_GitBranching_opt_b">
+                  <div class="para" id="GitBranching-2-2-2-1">While Git is widely used and has many benefits, its "killer feature" related to branching is not directly tied to compatibility with other Version Control Systems.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_GitBranching_opt_c">
+                  <div class="para" id="GitBranching-2-3-1-1">Advanced conflict resolution algorithms that automatically resolve merge conflicts but can accidentally delete files from the current branch.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_GitBranching_opt_c">
+                  <div class="para" id="GitBranching-2-3-2-1">Git does have conflict resolution mechanisms, but it is not the primary "killer feature".</div>
+                </li>
+                <li data-component="answer" id="opensource_1_GitBranching_opt_d">
+                  <div class="para" id="GitBranching-2-4-1-1">Ability to create branches that are completely isolated from the main development line, ensuring a clean and organized project history.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_GitBranching_opt_d">
+                  <div class="para" id="GitBranching-2-4-2-1">While this is a feature of Git’s branching model, it’s not considered the main "killer feature" that sets Git apart from other Version Control Systems.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_GitBranching_opt_e">
+                  <div class="para" id="GitBranching-2-5-1-1">None of the above.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_GitBranching_opt_e">
+                  <div class="para" id="GitBranching-2-5-2-1">One of the answers above is correct.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_git_undoing</id>
+      <title>"Undoing" in Git</title>
+      <question>
+        <label>Checkpoint 4.5.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_gitUndoing" data-multipleanswers="true" data-random="">
+                <div class="para" id="gitUndoing-1-1">Suppose you have inadvertently committed one or more changes to a file and want to discard the changes to revert it back to its last committed state. Which Git command should you use? Select all that apply.</div>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_a" data-correct="">
+                  <div class="para" id="gitUndoing-2-1-1-1">
+                    <code class="code-inline tex2jax_ignore">git checkout -- &lt;file&gt;</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_a">
+                  <div class="para" id="gitUndoing-2-1-2-1">Corect! This command allows you to discard changes made to a specific file and revert it back to its last committed state.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_b">
+                  <div class="para" id="gitUndoing-2-2-1-1">
+                    <code class="code-inline tex2jax_ignore">git reset --hard HEAD</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_b">
+                  <div class="para" id="gitUndoing-2-2-2-1">This command resets the entire working directory to the state of the last commit. Be careful, as it will discard all changes, including those in other files.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_c" data-correct="">
+                  <div class="para" id="gitUndoing-2-3-1-1">
+                    <code class="code-inline tex2jax_ignore">git restore &lt;file&gt;</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_c">
+                  <div class="para" id="gitUndoing-2-3-2-1">Correct! This command allows you to restore a file to a previous state, <dfn class="terminology">but</dfn> it requires specifying the commit or reference from which to restore the file.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_d">
+                  <div class="para" id="gitUndoing-2-4-1-1">
+                    <code class="code-inline tex2jax_ignore">git revert HEAD</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_d">
+                  <div class="para" id="gitUndoing-2-4-2-1">The command git revert HEAD is used to create a new commit that undoes the changes introduced by the last commit, which is pointed to by the HEAD reference</div>
+                </li>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_e">
+                  <div class="para" id="gitUndoing-2-5-1-1">
+                    <code class="code-inline tex2jax_ignore">git --unamend &lt;file&gt;</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_e">
+                  <div class="para" id="gitUndoing-2-5-2-1">This is not a valid git command.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_gitUndoing_opt_f">
+                  <div class="para" id="gitUndoing-2-6-1-1">
+                    <code class="code-inline tex2jax_ignore">git reset &lt;file&gt;</code>
+                  </div>
+                </li>
+                <li data-component="feedback" id="opensource_1_gitUndoing_opt_f">
+                  <div class="para" id="gitUndoing-2-6-2-1">This command unstages the file but does not revert any changes made in it.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_git_github</id>
+      <title>GitHub - Git in the Cloud</title>
+      <question>
+        <label>Video: Figure 4.6.1</label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone yt_section">
+              <div id="" data-component="youtube" class="align-left youtube-video" data-video-height="" data-video-width="" data-video-videoid="pBy1zgt0XPc" data-video-divid="" data-video-start="0" data-video-end="-1"/>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+      <question>
+        <label>Checkpoint 4.6.5 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone parsons_section" style="max-width: none;">
+              <div data-component="parsons" class="parsons" id="opensource_1_Git-GitHub">
+                <div class="parsons_question parsons-text">
+                  <div class="para" id="Git-GitHub-1-1">Arrange some of the steps below to contribute an edit to an existing project using established GitHub workflow:</div>
+                </div>
+                <pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-adaptive="true" data-noindent="true">
+				  Fork the project
+				
+
+---
+
+					Clone the GitHub repo to your local
+				
+
+---
+
+					Create a new topic branch
+				
+
+---
+
+					Make changes
+				
+
+---
+
+						Push to the current branch
+					
+
+---
+
+						Push to the main branch
+					
+ #paired
+---
+
+					Update current branch from upstream remote
+				
+
+---
+
+					Open a Pull Request
+				
+</pre>
+              </div>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_licensing</id>
+    <title>Open Source Licensing</title>
+    <subchapter>
+      <id>sec_licensing_about</id>
+      <title>About Licensing</title>
+      <question>
+        <label>Checkpoint 5.1.6 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_Licensingabout" data-multipleanswers="false" data-random="">
+                <div class="para" id="Licensingabout-1-1">What is the primary purpose of licensing creative works like software?</div>
+                <li data-component="answer" id="opensource_1_Licensingabout_opt_a">
+                  <div class="para" id="Licensingabout-2-1-1-1">To grant exclusive copyright to the author of the work.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Licensingabout_opt_a">
+                  <div class="para" id="Licensingabout-2-1-2-1">While the section mentions that authors automatically hold exclusive copyright to their work by default, licensing serves a different purpose than just granting copyright.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Licensingabout_opt_b" data-correct="">
+                  <div class="para" id="Licensingabout-2-2-1-1">To provide a legal framework for others to use the work.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Licensingabout_opt_b">
+                  <div class="para" id="Licensingabout-2-2-2-1">Licensing sets rules and conditions for how others can use a creative work, such as software, without infringing on the author’s copyright</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Licensingabout_opt_c">
+                  <div class="para" id="Licensingabout-2-3-1-1">To allow unlimited copying and distribution of the work.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Licensingabout_opt_c">
+                  <div class="para" id="Licensingabout-2-3-2-1">Licensing is meant to regulate how others can use the work, not necessarily to allow unlimited copying and distribution without any conditions.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_Licensingabout_opt_d">
+                  <div class="para" id="Licensingabout-2-4-1-1">To protect the creators’ products from being illegally sold for commercial purposes.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_Licensingabout_opt_d">
+                  <div class="para" id="Licensingabout-2-4-2-1">While one of the reasons for licensing is indeed to protect the creators’ products from illegal use, licensing is not solely focused on protecting against illegal activities.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_licensing_typical</id>
+      <title>Typical Open Source Licenses</title>
+      <question>
+        <label>Checkpoint 5.2.4 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecLicensingTypical" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecLicensingTypical-1-1">Which open source license requires making the complete source code of licensed works and modifications available under the same license?</div>
+                <li data-component="answer" id="opensource_1_SecLicensingTypical_opt_a">
+                  <div class="para" id="SecLicensingTypical-2-1-1-1">MIT License</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecLicensingTypical_opt_a">
+                  <div class="para" id="SecLicensingTypical-2-1-2-1">The MIT License is a permissive license with fewer conditions and does not require making the complete source code available under the same license.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecLicensingTypical_opt_b">
+                  <div class="para" id="SecLicensingTypical-2-2-1-1">Apache License 2.0</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecLicensingTypical_opt_b">
+                  <div class="para" id="SecLicensingTypical-2-2-2-1">The Apache License 2.0 is also a permissive license, but it does not require making the complete source code available under the same license.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecLicensingTypical_opt_c" data-correct="">
+                  <div class="para" id="SecLicensingTypical-2-3-1-1">GNU General Public License v3.0</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecLicensingTypical_opt_c">
+                  <div class="para" id="SecLicensingTypical-2-3-2-1">Correct! The GNU General Public License v3.0 is conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecLicensingTypical_opt_d">
+                  <div class="para" id="SecLicensingTypical-2-4-1-1">Boost Software License 1.0</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecLicensingTypical_opt_d">
+                  <div class="para" id="SecLicensingTypical-2-4-2-1">This is simple permissive license only requiring preservation of copyright and license notices for source (and not binary) distribution</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_licensing_existing_communities</id>
+      <title>Existing OSS Communities</title>
+      <question>
+        <label>Checkpoint 5.3.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_globalCommunityChallenge" data-multipleanswers="false" data-random="">
+                <div class="para" id="globalCommunityChallenge-1-1">What license did Plausible Analytics change to from the MIT License, and what was the main reason for this change?</div>
+                <li data-component="answer" id="opensource_1_globalCommunityChallenge_opt_a" data-correct="">
+                  <div class="para" id="globalCommunityChallenge-2-1-1-1">GNU GPLv3, to protect against corporations using the software to create proprietary software for sale.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_globalCommunityChallenge_opt_a">
+                  <div class="para" id="globalCommunityChallenge-2-1-2-1">Correct! They made the change to their license to protect against corporations that took their code and then used it to create and sell proprietary software that directly competed with their project.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_globalCommunityChallenge_opt_b">
+                  <div class="para" id="globalCommunityChallenge-2-2-1-1">Apache License 2.0, to make it more compatible with other open source projects.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_globalCommunityChallenge_opt_b">
+                  <div class="para" id="globalCommunityChallenge-2-2-2-1">The section mentions that Plausible Analytics changed to a GNU copyleft license, not the Apache License 2.0, for specific reasons related to how the software is used over a network.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_globalCommunityChallenge_opt_c">
+                  <div class="para" id="globalCommunityChallenge-2-3-1-1">Mozilla Public License MPL 2.0, to ensure greater privacy protection for users.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_globalCommunityChallenge_opt_c">
+                  <div class="para" id="globalCommunityChallenge-2-3-2-1">The reason for the license change was not related to privacy protection but rather to address specific issues with how corporations were using their software.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_globalCommunityChallenge_opt_d">
+                  <div class="para" id="globalCommunityChallenge-2-4-1-1">ISC License, to simplify the licensing terms and make it more permissive.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_globalCommunityChallenge_opt_d">
+                  <div class="para" id="globalCommunityChallenge-2-4-2-1">The section states that Plausible Analytics moved to a copyleft license to protect against specific use cases involving corporations, which is different from choosing a more permissive license like the ISC License.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_licensing_none</id>
+      <title>No License</title>
+      <question>
+        <label>Checkpoint 5.4.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_noLicense" data-multipleanswers="false" data-random="">
+                <div class="para" id="noLicense-1-1">If you come across software that doesn’t have a license, what are your options as a potential user?</div>
+                <li data-component="answer" id="opensource_1_noLicense_opt_a" data-correct="">
+                  <div class="para" id="noLicense-2-1-1-1">Request the maintainers to add a license and negotiate terms with them privately.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_noLicense_opt_a">
+                  <div class="para" id="noLicense-2-1-2-1">Correct! It’s nicer to ask or remind the maintainers about product license for their software before attempting to use it by any means.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_noLicense_opt_b">
+                  <div class="para" id="noLicense-2-2-1-1">Assume the software is open source and use it, but avoid sharing it with others.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_noLicense_opt_b">
+                  <div class="para" id="noLicense-2-2-2-1">Assuming the software is open source without a license is not a safe approach. Without a license, you have no permission to use, modify, or share the software, so using it without a license is not advisable</div>
+                </li>
+                <li data-component="answer" id="opensource_1_noLicense_opt_c">
+                  <div class="para" id="noLicense-2-3-1-1">Use the software for personal use but refrain from viewing or making a copy of the code.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_noLicense_opt_c">
+                  <div class="para" id="noLicense-2-3-2-1">Without a license, you have no permission to use the software, even for personal use. Additionally, if you have access to the code, you may inadvertently infringe on the copyright holder’s rights.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_noLicense_opt_d">
+                  <div class="para" id="noLicense-2-4-1-1">Contact GitHub support to report the lack of a license and seek their assistance in getting one.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_noLicense_opt_d">
+                  <div class="para" id="noLicense-2-4-2-1">While it’s a good idea to report the lack of a license to the maintainers or project owners, GitHub support is not directly involved in adding licenses to repositories. It’s up to the project owners to choose and add a license to their software.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_documentation</id>
+    <title>Documentation</title>
+    <subchapter>
+      <id>sec_docu_scope</id>
+      <title>Documentation Matters!</title>
+      <question>
+        <label>Checkpoint 6.1.3 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_docuscope" data-multipleanswers="false" data-random="">
+                <div class="para" id="docuscope-1-1">Which of the following statements best captures the role and significance of documentation in open source projects?</div>
+                <li data-component="answer" id="opensource_1_docuscope_opt_a">
+                  <div class="para" id="docuscope-2-1-1-1">Documentation is primarily used to outline the project’s future plans and visions.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docuscope_opt_a">
+                  <div class="para" id="docuscope-2-1-2-1">While the ROADMAP can provide insights into a project’s future plans, the primary role of documentation spans far beyond just outlining future visions. Documentation serves to communicate a wide range of information, from code functionality to contributor guidelines.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docuscope_opt_b">
+                  <div class="para" id="docuscope-2-2-1-1">The LICENSE file is crucial because it contains step-by-step instructions on how to use the software.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docuscope_opt_b">
+                  <div class="para" id="docuscope-2-2-2-1">The LICENSE file primarily outlines the terms under which the project is licensed, specifying what one is and is not allowed to do with the code. It doesn’t provide step-by-step instructions on using the software.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docuscope_opt_c" data-correct="">
+                  <div class="para" id="docuscope-2-3-1-1">One primary purpose of documentation in open source is to explain why decisions were made, helping future reference.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docuscope_opt_c">
+                  <div class="para" id="docuscope-2-3-2-1">Correct! Documentation in open source projects serves a critical purpose in explaining the reasoning behind decisions, aiding in both current understanding and future reference.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docuscope_opt_d">
+                  <div class="para" id="docuscope-2-4-1-1">Documentation is mainly for external users and not for the development team.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docuscope_opt_d">
+                  <div class="para" id="docuscope-2-4-2-1">Remember, documentation is not just for external users. Even seasoned developers benefit from well-documented code, especially when revisiting complex code segments after a significant duration.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docuscope_opt_e">
+                  <div class="para" id="docuscope-2-5-1-1">Documentation in open source projects is usually limited to the README and LICENSE files.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docuscope_opt_e">
+                  <div class="para" id="docuscope-2-5-2-1">Documentation in open source projects is comprehensive, encompassing a range of files such as README, CHANGELOG, CODE_OF_CONDUCT, and more. It’s not limited to just README and LICENSE files.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_docu_involvement</id>
+      <title>Documentation as Involvement</title>
+      <question>
+        <label>Checkpoint 6.2.2 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecDocuInvolvement" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecDocuInvolvement-1-1">Why is improving documentation considered an excellent way for newcomers to contribute to an open source project?</div>
+                <li data-component="answer" id="opensource_1_SecDocuInvolvement_opt_a">
+                  <div class="para" id="SecDocuInvolvement-2-1-1-1">It allows newcomers to showcase their technical skills in coding.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuInvolvement_opt_a">
+                  <div class="para" id="SecDocuInvolvement-2-1-2-1">Improving documentation is not directly related to coding skills.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuInvolvement_opt_b">
+                  <div class="para" id="SecDocuInvolvement-2-2-1-1">Developers often prefer newcomers to work on documentation instead of coding.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuInvolvement_opt_b">
+                  <div class="para" id="SecDocuInvolvement-2-2-2-1">While developers may appreciate contributions to documentation, this is not the primary reason why improving documentation is considered a good starting point for newcomers.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuInvolvement_opt_c" data-correct="">
+                  <div class="para" id="SecDocuInvolvement-2-3-1-1">Newcomers have experienced the process of setting up the project and can improve documentation based on their experience.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuInvolvement_opt_c">
+                  <div class="para" id="SecDocuInvolvement-2-3-2-1">Correct! Newcomers can often make valuable contributions to documentation because they have gone through the process of setting up the project, which allows them to identify and improve parts of the documentation that might be unclear, outdated, or confusing based on their first-hand experience.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuInvolvement_opt_d">
+                  <div class="para" id="SecDocuInvolvement-2-4-1-1">Improving documentation is viewed as less time-consuming compared to other contribution tasks.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuInvolvement_opt_d">
+                  <div class="para" id="SecDocuInvolvement-2-4-2-1">The time consumption of improving documentation is not the primary reason why it is recommended for newcomers to start with documentation.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_docu_build</id>
+      <title>Build Documentation</title>
+      <question>
+        <label>Checkpoint 6.3.1 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_docubuild" data-multipleanswers="false" data-random="">
+                <div class="para" id="docubuild-1-1">What is the purpose of build automation tools in software development?</div>
+                <li data-component="answer" id="opensource_1_docubuild_opt_a">
+                  <div class="para" id="docubuild-2-1-1-1">To manually compile and link object files and libraries.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docubuild_opt_a">
+                  <div class="para" id="docubuild-2-1-2-1">Build automation tools aim to automate these tasks, not perform them manually.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docubuild_opt_b" data-correct="">
+                  <div class="para" id="docubuild-2-2-1-1">To simplify the process of turning source code into binary executables.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docubuild_opt_b">
+                  <div class="para" id="docubuild-2-2-2-1">Correct! Build automation tools are used to automate the process of turning source code into binary executable files, which simplifies the build process and allows developers to handle complex projects more efficiently.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docubuild_opt_c">
+                  <div class="para" id="docubuild-2-3-1-1">To manage dependencies and build order in a complex software project.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docubuild_opt_c">
+                  <div class="para" id="docubuild-2-3-2-1">While build automation tools may help manage dependencies, they serve a broader purpose in automating the entire build process.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_docubuild_opt_d">
+                  <div class="para" id="docubuild-2-4-1-1">To easily refactor the code in a software project.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_docubuild_opt_d">
+                  <div class="para" id="docubuild-2-4-2-1">Although build automation tools can be a part of an environment that supports refactoring, their main purpose is not to refactor the code, but to automate the build process from source code to binary executables.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+    <subchapter>
+      <id>sec_issues_bugs</id>
+      <title>Issue and Bug Documentation</title>
+      <question>
+        <label>Checkpoint 6.4.8 </label>
+        <htmlsrc>
+          <div class="ptx-runestone-container">
+            <div class="runestone multiplechoice_section">
+              <ul data-component="multiplechoice" id="opensource_1_SecDocuIssuesBugs" data-multipleanswers="false" data-random="">
+                <div class="para" id="SecDocuIssuesBugs-1-1">What is the primary purpose of an issue tracker in open-source software projects?</div>
+                <li data-component="answer" id="opensource_1_SecDocuIssuesBugs_opt_a">
+                  <div class="para" id="SecDocuIssuesBugs-2-1-1-1">To provide a platform for developers to communicate with users about various aspects of the project.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuIssuesBugs_opt_a">
+                  <div class="para" id="SecDocuIssuesBugs-2-1-2-1">While communication is an essential aspect of an issue tracker, its main purpose is more specific and revolves around managing project tasks.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuIssuesBugs_opt_b" data-correct="">
+                  <div class="para" id="SecDocuIssuesBugs-2-2-1-1">To manage bugs, defects, feature requests, and other tasks related to the project.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuIssuesBugs_opt_b">
+                  <div class="para" id="SecDocuIssuesBugs-2-2-2-1">Absolutely right! An issue tracker serves as a comprehensive tool for managing various software development tasks, such as bug tracking, defect management, and handling feature requests.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuIssuesBugs_opt_c">
+                  <div class="para" id="SecDocuIssuesBugs-2-3-1-1">To act as a platform for users to provide feedback and suggestions about their feature requests.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuIssuesBugs_opt_c">
+                  <div class="para" id="SecDocuIssuesBugs-2-3-2-1">Although users can provide feedback through an issue tracker, the primary focus of this platform is not solely on feature requests but includes a broader range of tasks.</div>
+                </li>
+                <li data-component="answer" id="opensource_1_SecDocuIssuesBugs_opt_d">
+                  <div class="para" id="SecDocuIssuesBugs-2-4-1-1">To provide a centralized location for developers to collaborate on code.</div>
+                </li>
+                <li data-component="feedback" id="opensource_1_SecDocuIssuesBugs_opt_d">
+                  <div class="para" id="SecDocuIssuesBugs-2-4-2-1">While collaboration and code contribution is encouraged in open-source projects, the primary purpose of an issue tracker is not to serve as a hub for developers to collaborate on code directly.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </htmlsrc>
+      </question>
+    </subchapter>
+  </chapter>
+  <chapter>
+    <id>ch_contributing</id>
+    <title>Contribution: A Quick-Start Guide</title>
+    <subchapter>
+      <id>sec_contributing_quickstart</id>
+      <title>Quick Start</title>
+    </subchapter>
+    <subchapter>
+      <id>sec_contributing_projects</id>
+      <title>Friendly Communities</title>
+    </subchapter>
+  </chapter>
+</manifest>

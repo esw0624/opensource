@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-legacy                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using the Command Line</title>
+<link rel="canonical" href="https://runestone.academy/ns/books/published/opensource/sec_dev_shell.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Open Source">
+<meta property="book:author" content="Dr. Jan Pearce">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.6.2';
+</script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.11f2df1b38a61a3f.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="opensource" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="open-source.html"><span class="title">Open Source:</span> <span class="subtitle">What It Is and How to Contribute</span></a></h1>
+<p class="byline">Dr. Jan Pearce</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="meta_backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch_dev_env.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_dev_env.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_dev_basic_shell_commands.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><span class="nav-runestone-controls"><button onclick="runestoneComponents.popupScratchAC()" class="activecode-toggle button" title="Open Scratch ActiveCode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf097;</span><span class="name">Scratch ActiveCode</span></button><button class="runestone-profile dropdown button" title="Profile"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf0d3;</span><span class="name">Profile</span><div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/ns/course/index">Course Home</a><a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/runestone/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/runestone/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div></button></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-dedication"><div class="toc-title-box"><a href="meta_frontmatter-4.html" class="internal"><span class="title">Dedication</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="meta_frontmatter-5.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-forward.html" class="internal"><span class="title">Forward</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro_oss.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Open Source Software (OSS)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_what_it_is.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is Open Source Software?</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_matters.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Why OSS Matters</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#source-control" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Source Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#documentation" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#experiencing-the-software-lifecycle" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Experiencing the Software Lifecycle</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_source_code.html" class="internal"><span class="codenumber">1.3</span> <span class="title">About Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_source_code" class="internal"><span class="codenumber">1.3.1</span> <span class="title">What is Source Sode</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_decompilation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">On Decompilation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_share_code.html" class="internal"><span class="codenumber">1.4</span> <span class="title">On Sharing Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#source-code-to-share-or-not-to-share" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Source Code: To Share, or Not To Share?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#the-value-of-sharing" class="internal"><span class="codenumber">1.4.2</span> <span class="title"><dfn class="terminology">The value of sharing</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_contributor_mountain.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Climbing Contributor Mountain</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#user" class="internal"><span class="codenumber">1.5.1</span> <span class="title"><dfn class="terminology">User</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#seeker" class="internal"><span class="codenumber">1.5.2</span> <span class="title"><dfn class="terminology">Seeker</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#collaborator" class="internal"><span class="codenumber">1.5.3</span> <span class="title"><dfn class="terminology">Collaborator</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#contributor" class="internal"><span class="codenumber">1.5.4</span> <span class="title"><dfn class="terminology">Contributor</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_build_portfolio.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Building your OSS Portfolio</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#building-your-oss-portfolio" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Building Your OSS Portfolio</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#supplemental-materials" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Supplemental Materials</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_community.html" class="internal"><span class="codenumber">2</span> <span class="title">OSS Community and Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_community_global.html" class="internal"><span class="codenumber">2.1</span> <span class="title">The Challenges of Global Community</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_third_culture.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Synthetic Third Culture</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_qualities.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Qualities of an OSS Community</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_focus" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Focus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_maturity_history" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Maturity and History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_types_openness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Type of Openness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_commercial_ties" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Commercial Ties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_subgroups" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Subgroups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_skills" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Skills</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_mentoring_training" class="internal"><span class="codenumber">2.3.7</span> <span class="title">Mentoring and Training</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_communication.html" class="internal"><span class="codenumber">2.4</span> <span class="title">OSS Community Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec_website" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Website</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_community_communication.html#subsec-secp" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Software Engineering Collaboration Platforms (SECP)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-repository" class="internal"><span class="codenumber">2.4.2.1</span> <span class="title">Repository</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-issue-tracker" class="internal"><span class="codenumber">2.4.2.2</span> <span class="title">Issue Tracker</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-merge-request" class="internal"><span class="codenumber">2.4.2.3</span> <span class="title">Merge Request</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-project-board" class="internal"><span class="codenumber">2.4.2.4</span> <span class="title">Project Board</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-other-tools" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Other Asynchronous Communication Tools</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-synchronous_communication" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Synchronous Communications</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_dev_env.html" class="internal"><span class="codenumber">3</span> <span class="title">OSS Development Environment</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_dev_shell.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Using the Command Line</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec_terms_terminals" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Terminals and Related Terms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-why_not_gui" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Why not a GUI?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-getting_terminal" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Accessing a Terminal Window on your Machine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-access_shell" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Your Shell</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Basic Shell Commands</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html#subsec-files_directories_privileges" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Files, Directories, and Privileges</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dev_editors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">We All Need an Editor!</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_virtualization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Virtualization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtualizaton" class="internal"><span class="codenumber">3.4.1</span> <span class="title">The What and Why of Virtualization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtual_machines" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Virtual Machines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_containerization" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Containerization</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_git.html" class="internal"><span class="codenumber">4</span> <span class="title">Version Control with Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="git-why-version-control.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Why Version Control?</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="git-why-version-control.html#subsec_vcs_intro" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Version Control Systems</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_getting_started.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Getting Started with Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_types_version_control" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Types of Version Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_local_version_control_systems" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Local VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_centralized_version_control_systems" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Centralized VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_distributed_version_control_systems" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Distributed VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_a_short_history_of_git" class="internal"><span class="codenumber">4.2.5</span> <span class="title">A Short History of Git</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#sec-what-is-git" class="internal"><span class="codenumber">4.2.6</span> <span class="title">What is Git?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_snapshots_not_differences" class="internal"><span class="codenumber">4.2.6.1</span> <span class="title">Snapshots, Not Differences</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_nearly_every_operation_is_local" class="internal"><span class="codenumber">4.2.6.2</span> <span class="title">Nearly Every Operation Is Local</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_has_integrity" class="internal"><span class="codenumber">4.2.6.3</span> <span class="title">Git Has Integrity</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_generally_only_adds_data" class="internal"><span class="codenumber">4.2.6.4</span> <span class="title">Git Generally Only Adds Data</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_the_three_states" class="internal"><span class="codenumber">4.2.6.5</span> <span class="title">The Three File States</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_organization" class="internal"><span class="codenumber">4.2.6.6</span> <span class="title">How Git is Organized</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_on_the_command_line" class="internal"><span class="codenumber">4.2.7</span> <span class="title">The Command Line</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing" class="internal"><span class="codenumber">4.2.8</span> <span class="title">Installing Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_linux" class="internal"><span class="codenumber">4.2.8.1</span> <span class="title">Installing on Linux</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_macos" class="internal"><span class="codenumber">4.2.8.2</span> <span class="title">Installing on MacOS</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_installing_on_windows" class="internal"><span class="codenumber">4.2.8.3</span> <span class="title">Installing on Windows</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_git_help" class="internal"><span class="codenumber">4.2.9</span> <span class="title">Getting Help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_config" class="internal"><span class="codenumber">4.2.10</span> <span class="title">First-Time Git Setup</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_basics.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Git Basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_getting_a_repo" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Getting a Git Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_recording_changes_to_the_repository" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Recording Changes to the Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_viewing_history" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Viewing the Commit History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_remote_repos" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Working with Remotes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_branching.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Git Branching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_branching.html#_git_branches_overview" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Branches in a Nutshell</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_undoing.html" class="internal"><span class="codenumber">4.5</span> <span class="title">"Undoing" in Git</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_git_undoing.html#_undoing" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Undoing Changes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_github.html" class="internal"><span class="codenumber">4.6</span> <span class="title">GitHub - Git in the Cloud</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_contributing_to_a_project" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Contributing to a Project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_maintaining_gh_project" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Maintaining a Project</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_licensing.html" class="internal"><span class="codenumber">5</span> <span class="title">Open Source Licensing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_about.html" class="internal"><span class="codenumber">5.1</span> <span class="title">About Licensing</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_about.html#subsec_important_IP_Terminology" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Important IP Terminology</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_typical.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Typical Open Source Licenses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_MIT" class="internal"><span class="codenumber">5.2.1</span> <span class="title">MIT License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec-Apache" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Apache License 2.0</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_GNU_GPLv3" class="internal"><span class="codenumber">5.2.3</span> <span class="title">GNU General Public License v3.0</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_existing_communities.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Existing OSS Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-existing-projects" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Contributing to Existing Projects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-changing-licenses" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Changing Licenses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_none.html" class="internal"><span class="codenumber">5.4</span> <span class="title">No License</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_no_license" class="internal"><span class="codenumber">5.4.1</span> <span class="title">In the Absence of a License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_users_no_license" class="internal"><span class="codenumber">5.4.2</span> <span class="title">For potential users</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_documentation.html" class="internal"><span class="codenumber">6</span> <span class="title">Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_scope.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Documentation Matters!</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec-docu_purpose" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Purpose of Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec_why_needed" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Effective Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_involvement.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Documentation as Involvement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#sub-sec-how-documentation-suffers" class="internal"><span class="codenumber">6.2.1</span> <span class="title">How Documentation Suffers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#subsec-steps-to" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Getting Involved Through Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_build.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Build Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#subsec_what_is_building" class="internal"><span class="codenumber">6.3.1</span> <span class="title">What is Building, Exactly?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#living-with-complexity" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Living With Complexity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_issues_bugs.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Issue and Bug Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#subsec_issues_bugs_overview" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Issues and Bugs, Oh My!</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sec_bug_trackers" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Issue and Bug Trackers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#what-issue-tracker-exactly" class="internal"><span class="codenumber">6.4.3</span> <span class="title"><dfn class="terminology">What is an Issue Tracker, Exactly?</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sorting-through-the-issues" class="internal"><span class="codenumber">6.4.4</span> <span class="title"><dfn class="terminology">Sorting through the Issues</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#the-anatomy-of-a-good-bug-report" class="internal"><span class="codenumber">6.4.5</span> <span class="title">The Anatomy of a Good Bug Report</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#triage" class="internal"><span class="codenumber">6.4.6</span> <span class="title">Bug Triage</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_contributing.html" class="internal"><span class="codenumber">7</span> <span class="title">Contribution: A Quick-Start Guide</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_contributing_quickstart.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Quick Start</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_contributing_projects.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Friendly Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title"><em class="emphasis">Firefox</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title"><em class="emphasis">CHAOSS</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title"><em class="emphasis">PreTeXt Authoring Software</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title"><em class="emphasis">Runestone Academy</em></span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="meta_backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_git_cheat_sheet_pointer.html" class="internal"><span class="codenumber">A</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="a_git_cheat_sheet.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-getting-started" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Getting started with a project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-state" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Current state</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-branching" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Git branching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-undoing" class="internal"><span class="codenumber">A.1.4</span> <span class="title">Git stash</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-restoring" class="internal"><span class="codenumber">A.1.5</span> <span class="title">Git Restoring/Reverting</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_bash_cheat_sheet_pointer.html" class="internal"><span class="codenumber">B</span> <span class="title">Shell Command Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ap_shell_cheat_sheet.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Bash Shell Cheat Sheet</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="list_of_symbols.html" class="internal"><span class="codenumber">C</span> <span class="title">Symbols Index</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="meta_backmatter-5.html" class="internal"><span class="title">Text Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_dev_shell"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.1</span><span class="space"> </span><span class="title">Using the Command Line</span>
+</h2>
+<section class="introduction" id="sec_dev_shell-2"><div class="para" id="sec_dev_shell-2-1">This chapter introduces some of the key tools and technologies that are typical to development in open source. Specific tools and technologies tend to change over time, but the concepts tend to remain, so this chapter focuses on the concepts at a high level first, and then offers case studies of specific tools and technologies that are popular at the moment.  (Fortunately, because this book is open source, the specifics can be easily changed by many contributors as time dictates.)</div>
+<div class="para" id="sec_dev_shell-2-2">It is perhaps worth noting that the tools and technologies discussed in this chapter are not just specific to open source development. They are relevant to software engineering more generally, so what readers learn here is also broadly applicable to development work in industry.</div>
+<div class="para" id="sec_dev_shell-2-3">In this section, we explain some terminology related to the command line, why developers use it, and then get set up to use it ourselves. If you have worked with the command line previously, then this entire section may serve as a review. Otherwise, this section is written with you in mind.</div></section><section class="subsection" id="subsec_terms_terminals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="space"> </span><span class="title">Terminals and Related Terms</span>
+</h3>
+<div class="para logical" id="subsec_terms_terminals-2">
+<ul class="disc" id="subsec_terms_terminals-2-1">
+<li id="subsec_terms_terminals-2-1-1">
+<span class="heading"><span class="title">What is a <dfn class="terminology">terminal</dfn>?</span></span><div class="para" id="subsec_terms_terminals-2-1-1-2"> The English word <dfn class="terminology">terminal</dfn> means to be situated at the end of something, and the term’s meaning in computing has evolved since it was originally coined in the 1960s.</div>
+<div class="para" id="subsec_terms_terminals-2-1-1-3">Prior to the development of the first programmable electronic computers, computers were people (mostly women) who used mechanical calculators to compute complex mathematical computations quickly and accurately. The earliest electronic computers, such as Colossus and ENIAC, required specialized technical knowledge and skill to program because programming these machines was a complex process that involved physically entering commands flipping switches, pushing buttons, and manually moving patch cords.</div>
+<figure class="figure figure-like" id="img-DEC_VT100-terminal"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/DEC_VT100_terminal.png" class="contained" alt="Photo of an old DEC VT100 terminal from the 1970s."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.1<span class="period">.</span></span><span class="space"> </span>The DEC VT100, a widely emulated computer terminal</figcaption></figure><div class="para" id="subsec_terms_terminals-2-1-1-5">The development of the <dfn class="terminology">terminal interface</dfn> in the 1960s marked a significant shift in the way users interacted with computers because the terminal provided a convenient and much more accessible way to provide input and obtain output, allowing users to remotely interact with a computer via a keyboard and screen.  Back when the terminal was first used in computing, what we refer to as the terminal today was the only interface available to the user, while now it is used to refer to a specific type of text-based programming interface. In particular, today a <dfn class="terminology">terminal</dfn> simply refers to a text-based interface that allows a user to interact with a computer by entering commands and receiving output on a display screen.</div>
+</li>
+<li id="subsec_terms_terminals-2-1-2">
+<span class="heading"><span class="title">What is a <dfn class="terminology">console</dfn>?</span></span><div class="para" id="subsec_terms_terminals-2-1-2-2"> The English word <dfn class="terminology">console</dfn> comes from the related verb, <em class="emphasis">to console</em>, which means to provide support. In computing, the original meaning of the <dfn class="terminology">console</dfn> was as a physical device that supported input into and output from a computer. The term is still used that way, but it has also come to be synonymous with terminal in some environments. For example, if you search for console on a Windows machine, you may find the terminal program and/or you may find a security console program.</div>
+</li>
+<li id="subsec_terms_terminals-2-1-3">
+<span class="heading"><span class="title">What is a <dfn class="terminology">Command Line Interface (CLI)</dfn>?</span></span><div class="para" id="subsec_terms_terminals-2-1-3-2"> A <dfn class="terminology">CLI</dfn> refers to any interface that works with text-based commands and text-based output. We will be using a <dfn class="terminology">shell</dfn>, which is an example of a CLI.</div>
+</li>
+<li id="subsec_terms_terminals-2-1-4">
+<span class="heading"><span class="title">What is a <dfn class="terminology">shell</dfn>?</span></span><div class="para" id="subsec_terms_terminals-2-1-4-2"> A <dfn class="terminology">shell</dfn> is a program which parses and interprets the commands you enter in the terminal and then executes them, often using functionality provided directly by the operating system. In other words, a shell is a CLI which serves as the interface between the end-user and the operating system. It is called a shell because it is a user interface layer directly surrounding the <dfn class="terminology">kernel</dfn>, which is the innermost part of the operating system.</div>
+</li>
+</ul>
+<div class="para">A terminal/console will typically seamlessly offer direct access to a shell as well as other CLI programs, so although these terms are distinct from one another as described above, you will often hear people use the terms terminal, CLI, console, and shell almost interchangeably. Don’t let it worry you too much because you should almost always be able to understand what is meant from the context.</div>
+</div></section><section class="subsection" id="subsec-why_not_gui"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="space"> </span><span class="title">Why not a GUI?</span>
+</h3>
+<div class="para logical" id="subsec-why_not_gui-2">
+<div class="para">Given that Graphical User Interfaces (GUIs) came into widespread use decades ago, it may seem surprising that nearly all software developers utilize a non-graphical shell. The primary reasons for this include:</div>
+<ul class="disc" id="subsec-why_not_gui-2-1">
+<li id="subsec-why_not_gui-2-1-1">
+<span class="heading"><span class="title">Speed of Use.</span></span><div class="para" id="subsec-why_not_gui-2-1-1-2">The speed one can type a command is typically many times faster than the speed at which one can select a command from a menu.</div>
+</li>
+<li id="subsec-why_not_gui-2-1-2">
+<span class="heading"><span class="title">Expressiveness.</span></span><div class="para" id="subsec-why_not_gui-2-1-2-2">The shell facilitates features that are unavailable or difficult to access in a GUI. The mouse only allows for picking among the small set of predetermined options from the screen. However, for most systems many more options are actually available.</div>
+</li>
+<li id="subsec-why_not_gui-2-1-3">
+<span class="heading"><span class="title">Automation.</span></span><div class="para" id="subsec-why_not_gui-2-1-3-2">If you need to do something that is repetitive or requires combining multiple commands, the shell facilitates this too since shells can be programmed using a scripting language, allowing repetitive and/or complex tasks to be automated via a script.</div>
+</li>
+</ul>
+</div></section><section class="subsection" id="subsec-getting_terminal"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="space"> </span><span class="title">Accessing a Terminal Window on your Machine</span>
+</h3>
+<div class="para logical" id="subsec-getting_terminal-2">
+<div class="para">Regardless of whether you are using macOS, Linux, or Windows, you are able to set up a development environment, open a terminal, and access a shell. Some good news is that all of these OSs offer shells that are largely compatible. This is useful for a variety of reasons, including being able to find a useful answer when searching on how to accomplish various tasks on the Internet.</div>
+<ul class="disc" id="subsec-getting_terminal-2-1">
+<li id="subsec-getting_terminal-2-1-1">
+<span class="heading"><span class="title">On a Mac.</span></span><div class="para" id="subsec-getting_terminal-2-1-1-2">If you are on a Mac, you have a couple of good options. With any Mac, the built-in <em class="emphasis">Terminal</em> program allows you to access a shell.  If you are looking for a more customizable and feature-rich terminal program, then you might want to consider <a class="external" href="https://iterm2.com/downloads.html" target="_blank">iTerm2</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-1-2-3"><summary class="ptx-footnote__number" title="Footnote 3.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-1-2-3"><code class="code-inline tex2jax_ignore">iterm2.com/downloads.html</code></div></details>. Opening the Terminal on a Mac works like opening any other program: you can find it in the Applications folder, you can search for it, you can use the Launchpad, or you can use its shortcut which is command(⌘)+T.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-2">
+<span class="heading"><span class="title">On a Linux machine.</span></span><div class="para" id="subsec-getting_terminal-2-1-2-2">On a machine running Linux, the terminal is often also called the <em class="emphasis">Terminal</em>, although depending upon the Linux environment, the name may differ. <em class="emphasis">Konsole</em> may also be used. Regardless of what it is called, you can typically access the terminal in several ways: search for the keyword Terminal, right-click  on your desktop and then select "Open Terminal", or use the shortcut Ctrl+Alt+T.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-3">
+<span class="heading"><span class="title">On a Windows machine.</span></span><div class="para" id="subsec-getting_terminal-2-1-3-2">If you are on a Windows machine, you are in good company. In 2023, Windows is by far the most popular OS for desktops and laptopsHowever, if you are on a Windows machine, you will need to do some work to set up a development environment. If you are on a Windows machine, you have a number of options, but assuming everything will be just fine working in your normal Windows environment is simply not going to work. Seriously! So, please save yourself a lot of time, read on, and follow the directions below.</div>
+<div class="para" id="subsec-getting_terminal-2-1-3-3">Here is why your normal environment won’t work. In Windows, the terminal/shell is historically called the <dfn class="terminology">command prompt (cmd)</dfn>, although a newer very different terminal/shell called <dfn class="terminology">PowerShell</dfn> has also been around for decades. Neither of these terminals/shells are compatible with the default shell programs available on macOS and Linux. Note that for OSS development, it will be vastly superior to have access to a shell that is compatible with the macOS and Linux ones because these are the typical shells that developers use.</div>
+<div class="para" id="subsec-getting_terminal-2-1-3-4">If you are running Windows 10 or Windows 11, then it is best to follow the directions from Microsoft on <a class="external" href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank">Installing Ubuntu Linux on Windows with WSL2</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-3-4-2"><summary class="ptx-footnote__number" title="Footnote 3.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-3-4-2"><code class="code-inline tex2jax_ignore">learn.microsoft.com/en-us/windows/wsl/install</code></div></details> will give you the best experience by far. Note that you may first need to update your version of Windows, see <a class="external" href="https://bit.ly/Windows-Update-FAQ" target="_blank"><code class="code-inline tex2jax_ignore">https://bit.ly/Windows-Update-FAQ</code></a>. WSL2 provides a full Linux kernel that is integrated into the Windows operating system. After you have followed the linked directions to install WSL2, including the installation of Linux (the default, Ubuntu an excellent choice), be sure to set-up your Linux user information that you will never forget! Once all this is complete, the shell is most easily accessed by searching for Ubuntu in the search tool next to the Windows Icon and selecting it when you see it. For convenience, consider right-clicking on the Ubuntu icon and pinning it to your Start menu or to your Taskbar. Now Ubuntu will provide you a great shell to work with as you are developing, so be sure to use it for all of your development work.</div>
+<div class="para" id="subsec-getting_terminal-2-1-3-5">If you are running an earlier version of Windows, or an outdated version of Windows 10 that you cannot update, then you have several choices. For simpler development environments, using <a class="external" href="https://mingw.osdn.io/index.html" target="_blank">MinGW</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-3-5-2"><summary class="ptx-footnote__number" title="Footnote 3.1.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-3-5-2"><code class="code-inline tex2jax_ignore">mingw.osdn.io/</code></div></details> provides a lightweight solution, so you might try this. For a more complicated development environment such as one that utilizes virtualization, using a Virtual Machine (VM) environment such as <a class="external" href="https://www.virtualbox.org/" target="_blank">Virtual Box</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-3-5-4"><summary class="ptx-footnote__number" title="Footnote 3.1.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-3-5-4"><code class="code-inline tex2jax_ignore">virtualbox.org/</code></div></details> and installing and running Ubuntu inside the VM is advisable. For a cloud option, see below.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-4">
+<span class="heading"><span class="title">Another OS.</span></span><div class="para" id="subsec-getting_terminal-2-1-4-2">Although Linux, Mac, and Windows (to a lesser extent) are by far the most typical OSs, developing in another OS environment might also be possible. For example, searching the Internet on "software development in ChromeOS" will provide several useful links for how to set up a development environment in ChromeOS. Just be aware that developing in an OS environment other than Linux, Mac, or a modern version of Windows is likely to offer little in the way of support, so you might be better off using a cloud-based development environment or a virtual machine (VM) environment.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-5">
+<span class="heading"><span class="title">Installing Linux in a Virtual Machine (VM) Environment.</span></span><div class="para" id="subsec-getting_terminal-2-1-5-2">If you have no other options among those that were detailed above and you have sufficient RAM and secondary storage available, then you might consider installing Linux in a VM. Using Linux in a VM will create at least some lag, which might be significant, nevertheless this may be a good choice if you are on an older Windows machine and want to develop off-line. If this describes your use-case, you might try it since it is cost-free. Try VM software such as <a class="external" href="https://www.virtualbox.org/" target="_blank">Virtual Box</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-5-2-2"><summary class="ptx-footnote__number" title="Footnote 3.1.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-5-2-2"><code class="code-inline tex2jax_ignore">virtualbox.org/</code></div></details>, installing and running Ubuntu in the VM, and then following the Ubuntu directions above.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-6">
+<span class="heading"><span class="title">Dual Boot With Linux.</span></span><div class="para" id="subsec-getting_terminal-2-1-6-2">If your computer does not have sufficient RAM and enough processing power for properly running a virtual machine, a different option might be to proceed with a dual boot installation with your current operating system and Linux. This method will allow you to start your computer with Linux whenever you need to access your development environment.</div>
+</li>
+<li id="subsec-getting_terminal-2-1-7">
+<span class="heading"><span class="title">In the Cloud.</span></span><div class="para" id="subsec-getting_terminal-2-1-7-2">To contribute to most open source projects, you will need to set-up a build environment for local testing. While it is typical to have a local development environment to work in, there has recently been an influx of cloud providers which offer solutions for cloud-based development environments. These have the benefit that they require less setup than a local development environment, but are often only free within constraints and otherwise incur a monthly fee, which might be waived for a trial period or for students.</div>
+<div class="para" id="subsec-getting_terminal-2-1-7-3">
+<dfn class="terminology">Cloud Development Environments (CDEs)</dfn> are full development environments in the cloud. The best known and most feature-rich is <a class="external" href="https://github.com/features/codespaces" target="_blank">GitHub Codespaces.</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-7-3-3"><summary class="ptx-footnote__number" title="Footnote 3.1.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-7-3-3"><code class="code-inline tex2jax_ignore">github.com/features/codespaces</code></div></details> A couple of the other popular cloud development environments include <a class="external" href="https://aws.amazon.com/cloud9/" target="_blank">AWS Cloud9</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-7-3-5"><summary class="ptx-footnote__number" title="Footnote 3.1.7"><sup> 7 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-7-3-5"><code class="code-inline tex2jax_ignore">aws.amazon.com/cloud9</code></div></details> and <a class="external" href="https://www.gitpod.io/" target="_blank">Gitpod.</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-7-3-7"><summary class="ptx-footnote__number" title="Footnote 3.1.8"><sup> 8 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-7-3-7"><code class="code-inline tex2jax_ignore">www.gitpod.io</code></div></details> All of these environments try to help you set up your development environment with ease, and you can mostly likely find a way to at least try them for free.</div>
+<div class="para" id="subsec-getting_terminal-2-1-7-4">For the purposes of this chapter, if you cannot quickly set up your local environment or cloud environment, you can practice using a shell at Fabrice Bellard’s <a class="external" href="https://bellard.org/jslinux/" target="_blank">JSLinux</a><details class="ptx-footnote" aria-live="polite" id="subsec-getting_terminal-2-1-7-4-2"><summary class="ptx-footnote__number" title="Footnote 3.1.9"><sup> 9 </sup></summary><div class="ptx-footnote__contents" id="subsec-getting_terminal-2-1-7-4-2"><code class="code-inline tex2jax_ignore">bellard.org/jslinux/</code></div></details> which provides a very small cloud-based virtual machine environment. (Choosing the riscv64 Linux console will work for all of these exercises.) Note that this a free service which has a capped bandwidth of 40 kB/s. You are asked to please be respectful and don’t abuse the service.</div>
+</li>
+</ul>
+</div></section><section class="subsection" id="subsec-access_shell"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="space"> </span><span class="title">Your Shell</span>
+</h3>
+<div class="para" id="subsec-access_shell-2">Many shells are available for Linux, but the most popular is the Bourne-again shell (<dfn class="terminology">bash</dfn>) shell, the next section is focused on bash. If you are using another shell like <dfn class="terminology">zsh</dfn>, which is now the default on macOS and many people’s preference over bash, then don’t worry. The different shells available on Linux and macOS are largely compatible with each other and you will almost certainly not run into any issues by using zsh.</div></section><section class="conclusion" id="sec_dev_shell-7"><div class="para" id="sec_dev_shell-7-1">If you have reached the end of this section, you should be able to open a terminal window to access a shell. In the next section, you will get some practice with some basic shell commands.</div></section><article class="exercise exercise-like" id="ShellTerms"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="opensource_1_ShellTerms" data-multipleanswers="false" data-random="">
+<div class="para" id="ShellTerms-1-1">What is the primary purpose of a Command Line Interface (CLI) in computing?</div>
+<li data-component="answer" id="opensource_1_ShellTerms_opt_a"><div class="para" id="ShellTerms-2-1-1-1">To provide a graphical user interface for software developers.</div></li>
+<li data-component="feedback" id="opensource_1_ShellTerms_opt_a"><div class="para" id="ShellTerms-2-1-2-1">A Command Line Interface (CLI) is different from a graphical user interface (GUI) and involves text-based commands instead of graphical elements.</div></li>
+<li data-component="answer" id="opensource_1_ShellTerms_opt_b"><div class="para" id="ShellTerms-2-2-1-1">To enhance user experience by offering a wide range of customizable options not found in Graphical User Interfaces (GUIs).</div></li>
+<li data-component="feedback" id="opensource_1_ShellTerms_opt_b"><div class="para" id="ShellTerms-2-2-2-1">While a CLI offers powerful features, its primary purpose is not specifically about enhancing user experience through customization.</div></li>
+<li data-component="answer" id="opensource_1_ShellTerms_opt_c" data-correct=""><div class="para" id="ShellTerms-2-3-1-1">To support input and output from a computer via a keyboard and screen.</div></li>
+<li data-component="feedback" id="opensource_1_ShellTerms_opt_c"><div class="para" id="ShellTerms-2-3-2-1">Correct! A Command Line Interface (CLI) allows users to interact with a computer by entering text-based commands and receiving output on a display screen.</div></li>
+<li data-component="answer" id="opensource_1_ShellTerms_opt_d"><div class="para" id="ShellTerms-2-4-1-1">To serve as a physical device that supports hardware connections and programming for a computer.</div></li>
+<li data-component="feedback" id="opensource_1_ShellTerms_opt_d"><div class="para" id="ShellTerms-2-4-2-1">A CLI is a software interface and not a physical device. It does not directly involve hardware connections or programming.</div></li>
+</ul></div></div></article><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch_dev_env.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_dev_basic_shell_commands.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
+</html>

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-legacy                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Git Basics</title>
+<link rel="canonical" href="https://runestone.academy/ns/books/published/opensource/sec_git_basics.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Open Source">
+<meta property="book:author" content="Dr. Jan Pearce">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.6.2';
+</script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.11f2df1b38a61a3f.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="opensource" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="open-source.html"><span class="title">Open Source:</span> <span class="subtitle">What It Is and How to Contribute</span></a></h1>
+<p class="byline">Dr. Jan Pearce</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="meta_backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_git_getting_started.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_git.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_git_branching.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><span class="nav-runestone-controls"><button onclick="runestoneComponents.popupScratchAC()" class="activecode-toggle button" title="Open Scratch ActiveCode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf097;</span><span class="name">Scratch ActiveCode</span></button><button class="runestone-profile dropdown button" title="Profile"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf0d3;</span><span class="name">Profile</span><div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/ns/course/index">Course Home</a><a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/runestone/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/runestone/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div></button></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-dedication"><div class="toc-title-box"><a href="meta_frontmatter-4.html" class="internal"><span class="title">Dedication</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="meta_frontmatter-5.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-forward.html" class="internal"><span class="title">Forward</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro_oss.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Open Source Software (OSS)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_what_it_is.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is Open Source Software?</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_matters.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Why OSS Matters</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#source-control" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Source Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#documentation" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#experiencing-the-software-lifecycle" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Experiencing the Software Lifecycle</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_source_code.html" class="internal"><span class="codenumber">1.3</span> <span class="title">About Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_source_code" class="internal"><span class="codenumber">1.3.1</span> <span class="title">What is Source Sode</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_decompilation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">On Decompilation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_share_code.html" class="internal"><span class="codenumber">1.4</span> <span class="title">On Sharing Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#source-code-to-share-or-not-to-share" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Source Code: To Share, or Not To Share?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#the-value-of-sharing" class="internal"><span class="codenumber">1.4.2</span> <span class="title"><dfn class="terminology">The value of sharing</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_contributor_mountain.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Climbing Contributor Mountain</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#user" class="internal"><span class="codenumber">1.5.1</span> <span class="title"><dfn class="terminology">User</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#seeker" class="internal"><span class="codenumber">1.5.2</span> <span class="title"><dfn class="terminology">Seeker</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#collaborator" class="internal"><span class="codenumber">1.5.3</span> <span class="title"><dfn class="terminology">Collaborator</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#contributor" class="internal"><span class="codenumber">1.5.4</span> <span class="title"><dfn class="terminology">Contributor</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_build_portfolio.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Building your OSS Portfolio</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#building-your-oss-portfolio" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Building Your OSS Portfolio</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#supplemental-materials" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Supplemental Materials</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_community.html" class="internal"><span class="codenumber">2</span> <span class="title">OSS Community and Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_community_global.html" class="internal"><span class="codenumber">2.1</span> <span class="title">The Challenges of Global Community</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_third_culture.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Synthetic Third Culture</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_qualities.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Qualities of an OSS Community</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_focus" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Focus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_maturity_history" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Maturity and History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_types_openness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Type of Openness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_commercial_ties" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Commercial Ties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_subgroups" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Subgroups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_skills" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Skills</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_mentoring_training" class="internal"><span class="codenumber">2.3.7</span> <span class="title">Mentoring and Training</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_communication.html" class="internal"><span class="codenumber">2.4</span> <span class="title">OSS Community Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec_website" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Website</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_community_communication.html#subsec-secp" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Software Engineering Collaboration Platforms (SECP)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-repository" class="internal"><span class="codenumber">2.4.2.1</span> <span class="title">Repository</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-issue-tracker" class="internal"><span class="codenumber">2.4.2.2</span> <span class="title">Issue Tracker</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-merge-request" class="internal"><span class="codenumber">2.4.2.3</span> <span class="title">Merge Request</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-project-board" class="internal"><span class="codenumber">2.4.2.4</span> <span class="title">Project Board</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-other-tools" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Other Asynchronous Communication Tools</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-synchronous_communication" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Synchronous Communications</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_dev_env.html" class="internal"><span class="codenumber">3</span> <span class="title">OSS Development Environment</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_shell.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Using the Command Line</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec_terms_terminals" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Terminals and Related Terms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-why_not_gui" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Why not a GUI?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-getting_terminal" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Accessing a Terminal Window on your Machine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-access_shell" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Your Shell</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Basic Shell Commands</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html#subsec-files_directories_privileges" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Files, Directories, and Privileges</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dev_editors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">We All Need an Editor!</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_virtualization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Virtualization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtualizaton" class="internal"><span class="codenumber">3.4.1</span> <span class="title">The What and Why of Virtualization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtual_machines" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Virtual Machines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_containerization" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Containerization</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_git.html" class="internal"><span class="codenumber">4</span> <span class="title">Version Control with Git</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="git-why-version-control.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Why Version Control?</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="git-why-version-control.html#subsec_vcs_intro" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Version Control Systems</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_getting_started.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Getting Started with Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_types_version_control" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Types of Version Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_local_version_control_systems" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Local VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_centralized_version_control_systems" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Centralized VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_distributed_version_control_systems" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Distributed VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_a_short_history_of_git" class="internal"><span class="codenumber">4.2.5</span> <span class="title">A Short History of Git</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#sec-what-is-git" class="internal"><span class="codenumber">4.2.6</span> <span class="title">What is Git?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_snapshots_not_differences" class="internal"><span class="codenumber">4.2.6.1</span> <span class="title">Snapshots, Not Differences</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_nearly_every_operation_is_local" class="internal"><span class="codenumber">4.2.6.2</span> <span class="title">Nearly Every Operation Is Local</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_has_integrity" class="internal"><span class="codenumber">4.2.6.3</span> <span class="title">Git Has Integrity</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_generally_only_adds_data" class="internal"><span class="codenumber">4.2.6.4</span> <span class="title">Git Generally Only Adds Data</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_the_three_states" class="internal"><span class="codenumber">4.2.6.5</span> <span class="title">The Three File States</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_organization" class="internal"><span class="codenumber">4.2.6.6</span> <span class="title">How Git is Organized</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_on_the_command_line" class="internal"><span class="codenumber">4.2.7</span> <span class="title">The Command Line</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing" class="internal"><span class="codenumber">4.2.8</span> <span class="title">Installing Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_linux" class="internal"><span class="codenumber">4.2.8.1</span> <span class="title">Installing on Linux</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_macos" class="internal"><span class="codenumber">4.2.8.2</span> <span class="title">Installing on MacOS</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_installing_on_windows" class="internal"><span class="codenumber">4.2.8.3</span> <span class="title">Installing on Windows</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_git_help" class="internal"><span class="codenumber">4.2.9</span> <span class="title">Getting Help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_config" class="internal"><span class="codenumber">4.2.10</span> <span class="title">First-Time Git Setup</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_git_basics.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Git Basics</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_getting_a_repo" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Getting a Git Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_recording_changes_to_the_repository" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Recording Changes to the Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_viewing_history" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Viewing the Commit History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_remote_repos" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Working with Remotes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_branching.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Git Branching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_branching.html#_git_branches_overview" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Branches in a Nutshell</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_undoing.html" class="internal"><span class="codenumber">4.5</span> <span class="title">"Undoing" in Git</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_git_undoing.html#_undoing" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Undoing Changes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_github.html" class="internal"><span class="codenumber">4.6</span> <span class="title">GitHub - Git in the Cloud</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_contributing_to_a_project" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Contributing to a Project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_maintaining_gh_project" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Maintaining a Project</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_licensing.html" class="internal"><span class="codenumber">5</span> <span class="title">Open Source Licensing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_about.html" class="internal"><span class="codenumber">5.1</span> <span class="title">About Licensing</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_about.html#subsec_important_IP_Terminology" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Important IP Terminology</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_typical.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Typical Open Source Licenses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_MIT" class="internal"><span class="codenumber">5.2.1</span> <span class="title">MIT License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec-Apache" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Apache License 2.0</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_GNU_GPLv3" class="internal"><span class="codenumber">5.2.3</span> <span class="title">GNU General Public License v3.0</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_existing_communities.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Existing OSS Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-existing-projects" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Contributing to Existing Projects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-changing-licenses" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Changing Licenses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_none.html" class="internal"><span class="codenumber">5.4</span> <span class="title">No License</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_no_license" class="internal"><span class="codenumber">5.4.1</span> <span class="title">In the Absence of a License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_users_no_license" class="internal"><span class="codenumber">5.4.2</span> <span class="title">For potential users</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_documentation.html" class="internal"><span class="codenumber">6</span> <span class="title">Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_scope.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Documentation Matters!</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec-docu_purpose" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Purpose of Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec_why_needed" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Effective Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_involvement.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Documentation as Involvement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#sub-sec-how-documentation-suffers" class="internal"><span class="codenumber">6.2.1</span> <span class="title">How Documentation Suffers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#subsec-steps-to" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Getting Involved Through Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_build.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Build Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#subsec_what_is_building" class="internal"><span class="codenumber">6.3.1</span> <span class="title">What is Building, Exactly?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#living-with-complexity" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Living With Complexity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_issues_bugs.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Issue and Bug Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#subsec_issues_bugs_overview" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Issues and Bugs, Oh My!</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sec_bug_trackers" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Issue and Bug Trackers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#what-issue-tracker-exactly" class="internal"><span class="codenumber">6.4.3</span> <span class="title"><dfn class="terminology">What is an Issue Tracker, Exactly?</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sorting-through-the-issues" class="internal"><span class="codenumber">6.4.4</span> <span class="title"><dfn class="terminology">Sorting through the Issues</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#the-anatomy-of-a-good-bug-report" class="internal"><span class="codenumber">6.4.5</span> <span class="title">The Anatomy of a Good Bug Report</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#triage" class="internal"><span class="codenumber">6.4.6</span> <span class="title">Bug Triage</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_contributing.html" class="internal"><span class="codenumber">7</span> <span class="title">Contribution: A Quick-Start Guide</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_contributing_quickstart.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Quick Start</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_contributing_projects.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Friendly Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title"><em class="emphasis">Firefox</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title"><em class="emphasis">CHAOSS</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title"><em class="emphasis">PreTeXt Authoring Software</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title"><em class="emphasis">Runestone Academy</em></span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="meta_backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_git_cheat_sheet_pointer.html" class="internal"><span class="codenumber">A</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="a_git_cheat_sheet.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-getting-started" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Getting started with a project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-state" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Current state</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-branching" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Git branching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-undoing" class="internal"><span class="codenumber">A.1.4</span> <span class="title">Git stash</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-restoring" class="internal"><span class="codenumber">A.1.5</span> <span class="title">Git Restoring/Reverting</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_bash_cheat_sheet_pointer.html" class="internal"><span class="codenumber">B</span> <span class="title">Shell Command Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ap_shell_cheat_sheet.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Bash Shell Cheat Sheet</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="list_of_symbols.html" class="internal"><span class="codenumber">C</span> <span class="title">Symbols Index</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="meta_backmatter-5.html" class="internal"><span class="title">Text Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_git_basics"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Git Basics</span>
+</h2>
+<section class="introduction" id="sec_git_basics-2"><div class="para" id="sec_git_basics-2-1">If you could read only one section to get going with Git, this would be the one to read. This section covers every basic command you need to do the vast majority of the things you’ll eventually spend your time doing with Git. By the end of this section, you should be able to configure and initialize a repository, begin and stop tracking files, and stage and commit changes. You will also learn how to set up Git to ignore certain files and file patterns, how to undo mistakes quickly and easily, how to browse the history of your project and view changes between commits, and how to push and pull from remote repositories.</div></section><section class="subsection" id="_getting_a_repo"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="space"> </span><span class="title">Getting a Git Repository</span>
+</h3>
+<div class="para" id="_getting_a_repo-2">You typically obtain an existing Git repository in one of two ways:</div>
+<div class="para logical" id="_getting_a_repo-3"><ol class="decimal" id="_getting_a_repo-3-1">
+<li id="_getting_a_repo-3-1-1"><div class="para" id="_getting_a_repo-3-1-1-1">You can take an existing local directory that is currently not under version control, and turn it into a Git repository, or</div></li>
+<li id="_getting_a_repo-3-1-2"><div class="para" id="_getting_a_repo-3-1-2-1">You can <em class="emphasis">clone</em> an existing Git repository from elsewhere.</div></li>
+</ol></div>
+<div class="para" id="_getting_a_repo-4">In either case, you end up with a Git repository on your local machine, ready for work.</div>
+<section class="paragraphs" id="_initializing_a_repository_in_an_existing_directory"><h4 class="heading"><span class="title">Initializing a Repository in an Existing Directory.</span></h4>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-2">If you have a project directory that is currently not under version control and you want to start controlling it with Git, you first need to go to that project’s directory. If you’ve never done this, it looks a little different depending on which system you’re running:</div>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-3">for Linux:</div>
+<pre class="code-block tex2jax_ignore">$ cd /home/user/my_project
+</pre>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-5">for macOS:</div>
+<pre class="code-block tex2jax_ignore">$ cd /Users/user/my_project
+</pre>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-7">for Windows:</div>
+<pre class="code-block tex2jax_ignore">$ cd C:/Users/user/my_project
+</pre>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-9">and type:</div>
+<pre class="code-block tex2jax_ignore">$ git init
+</pre>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-11">This creates a new subdirectory named <code class="code-inline tex2jax_ignore">.git</code> that contains all of your necessary repository files — a Git repository skeleton. At this point, nothing in your project is tracked yet.</div>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-12">If you want to start version-controlling existing files (as opposed to an empty directory), you should probably begin tracking those files and do an initial commit. You can accomplish that with a few <code class="code-inline tex2jax_ignore">git add</code> commands that specify the files you want to track, followed by a <code class="code-inline tex2jax_ignore">git commit</code>:</div>
+<pre class="code-block tex2jax_ignore">$ git add *.c
+$ git add LICENSE
+$ git commit -m 'Initial project version'
+</pre>
+<div class="para" id="_initializing_a_repository_in_an_existing_directory-14">We’ll go over what these commands do in just a minute. At this point, you have a Git repository with tracked files and an initial commit.</div></section><section class="paragraphs" id="_git_cloning"><h4 class="heading"><span class="title">Cloning an Existing Repository.</span></h4>
+<div class="para" id="_git_cloning-2">If you want to get a copy of an existing Git repository — for example, a project you’d like to contribute to — the command you need is <code class="code-inline tex2jax_ignore">git clone</code>. If you’re familiar with other VCSs such as Subversion, you’ll notice that the command is "clone" and not "checkout". This is an important distinction — instead of getting just a working copy, Git receives a full copy of nearly all data that the server has. Every version of every file for the history of the project is pulled down by default when you run <code class="code-inline tex2jax_ignore">git clone</code>.</div>
+<div class="para" id="_git_cloning-3">You clone a repository with <code class="code-inline tex2jax_ignore">git clone &lt;url&gt;</code>. For example, if you want to clone the Git linkable library called <code class="code-inline tex2jax_ignore">libgit2</code>, you can do so like this:</div>
+<pre class="code-block tex2jax_ignore">$ git clone https://github.com/libgit2/libgit2
+</pre>
+<div class="para" id="_git_cloning-5">That creates a directory named <code class="code-inline tex2jax_ignore">libgit2</code>, initializes a <code class="code-inline tex2jax_ignore">.git</code> directory inside it, pulls down all the data for that repository, and checks out a working copy of the latest version. If you go into the new <code class="code-inline tex2jax_ignore">libgit2</code> directory that was just created, you’ll see the project files in there, ready to be worked on or used.</div>
+<div class="para" id="_git_cloning-6">If you want to clone the repository into a directory named something other than <code class="code-inline tex2jax_ignore">libgit2</code>, you can specify the new directory name as an additional argument:</div>
+<pre class="code-block tex2jax_ignore">$ git clone https://github.com/libgit2/libgit2 mylibgit
+</pre>
+<div class="para" id="_git_cloning-8">That command does the same thing as the previous one, but the target directory is called <code class="code-inline tex2jax_ignore">mylibgit</code>.</div>
+<div class="para" id="_git_cloning-9">Git has a number of different transfer protocols you can use. The previous example uses the <code class="code-inline tex2jax_ignore">https://</code> protocol, but you may also see <code class="code-inline tex2jax_ignore">git://</code> or <code class="code-inline tex2jax_ignore">user@server:path/to/repo.git</code>, which uses the SSH transfer protocol.</div></section></section><section class="subsection" id="_recording_changes_to_the_repository"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="space"> </span><span class="title">Recording Changes to the Repository</span>
+</h3>
+<div class="para" id="_recording_changes_to_the_repository-2">At this point, you should have a <em class="emphasis">bona fide</em> Git repository on your local machine, and a checkout or <em class="emphasis">working copy</em> of all of its files in front of you. Typically, you’ll want to start making changes and committing snapshots of those changes into your repository each time the project reaches a state you want to record.</div>
+<div class="para" id="_recording_changes_to_the_repository-3">Remember that each file in your working directory can be in one of two states: <em class="emphasis">tracked</em> or <em class="emphasis">untracked</em>. Tracked files are files that were in the last snapshot, as well as any newly staged files; they can be unmodified, modified, or staged. In short, tracked files are files that Git knows about.</div>
+<div class="para" id="_recording_changes_to_the_repository-4">Untracked files are everything else — any files in your working directory that were not in your last snapshot and are not in your staging area. When you first clone a repository, all of your files will be tracked and unmodified because Git just checked them out and you haven’t edited anything.</div>
+<div class="para" id="_recording_changes_to_the_repository-5">As you edit files, Git sees them as modified, because you’ve changed them since your last commit. As you work, you selectively stage these modified files and then commit all those staged changes, and the cycle repeats.</div>
+<figure class="figure figure-like" id="git-lifecycle"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lifecycle.png" class="contained" alt="An image using arrows to describe different changes to the status of your files during their lifecycle when working with git."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.1<span class="period">.</span></span><span class="space"> </span>The lifecycle of the status of your files</figcaption></figure><section class="paragraphs" id="_checking_status"><h4 class="heading"><span class="title">Checking the Status of Your Files.</span></h4>
+<div class="para" id="_checking_status-2">The main tool you use to determine which files are in which state is the <code class="code-inline tex2jax_ignore">git status</code> command. If you run this command directly after a clone, you should see something like this:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+nothing to commit, working tree clean
+</pre>
+<div class="para" id="_checking_status-4">This means you have a clean working directory; in other words, none of your tracked files are modified. Git also doesn’t see any untracked files, or they would be listed here. Finally, the command tells you which branch you’re on and informs you that it has not diverged from the same branch on the server. That branch is typically <code class="code-inline tex2jax_ignore">main</code>, which is the current default. It could also be <code class="code-inline tex2jax_ignore">main</code>, which was the default until October 1, 2020. Don’t worry about it here.  The next section on Git Branching will go over branches and references in detail.</div>
+<div class="para" id="_checking_status-5">Let’s say you add a new file to your project, a simple <code class="code-inline tex2jax_ignore">README</code> file. If the file didn’t exist before, and you run <code class="code-inline tex2jax_ignore">git status</code>, you see your untracked file like so:</div>
+<pre class="code-block tex2jax_ignore">$ echo 'My Project' &gt; README
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+    README
+
+nothing added to commit but untracked files present (use "git add" to track)
+</pre>
+<div class="para" id="_checking_status-7">You can see that your new <code class="code-inline tex2jax_ignore">README</code> file is untracked, because it’s under the “Untracked files” heading in your status output. Untracked basically means that Git sees a file you didn’t have in the previous snapshot (commit), and which hasn’t yet been staged; Git won’t start including it in your commit snapshots until you explicitly tell it to do so. It does this so you don’t accidentally begin including generated binary files or other files that you did not mean to include. You do want to start including <code class="code-inline tex2jax_ignore">README</code>, so let’s start tracking the file.</div></section><section class="paragraphs" id="_tracking_files"><h4 class="heading"><span class="title">Tracking New Files.</span></h4>
+<div class="para" id="_tracking_files-2">In order to begin tracking a new file, you use the command <code class="code-inline tex2jax_ignore">git add</code>. To begin tracking the <code class="code-inline tex2jax_ignore">README</code> file, you can run this:</div>
+<pre class="code-block tex2jax_ignore">$ git add README
+</pre>
+<div class="para" id="_tracking_files-4">If you run your status command again, you can see that your <code class="code-inline tex2jax_ignore">README</code> file is now tracked and staged to be committed:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+
+    new file:   README
+</pre>
+<div class="para" id="_tracking_files-6">You can tell that it’s staged because it’s under the “Changes to be committed” heading. If you commit at this point, the version of the file at the time you ran <code class="code-inline tex2jax_ignore">git add</code> is what will be in the subsequent historical snapshot. You may recall that when you ran <code class="code-inline tex2jax_ignore">git init</code> earlier, you then ran <code class="code-inline tex2jax_ignore">git add &lt;files&gt;</code> — that was to begin tracking files in your directory. The <code class="code-inline tex2jax_ignore">git add</code> command takes a path name for either a file or a directory; if it’s a directory, the command adds all the files in that directory recursively.</div></section><section class="paragraphs" id="_staging_modified_files"><h4 class="heading"><span class="title">Staging Modified Files.</span></h4>
+<div class="para" id="_staging_modified_files-2">Let’s change a file that was already tracked. If you change a previously tracked file called <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> and then run your <code class="code-inline tex2jax_ignore">git status</code> command again, you get something that looks like this:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   README
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   CONTRIBUTING.md
+</pre>
+<div class="para" id="_staging_modified_files-4">The <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> file appears under a section named “Changes not staged for commit” — which means that a file that is tracked has been modified in the working directory but not yet staged. To stage it, you run the <code class="code-inline tex2jax_ignore">git add</code> command. <code class="code-inline tex2jax_ignore">git add</code> is a multipurpose command — you use it to begin tracking new files, to stage files, and to do other things like marking merge-conflicted files as resolved. It may be helpful to think of it more as “add precisely this content to the next commit” rather than “add this file to the project”. Let’s run <code class="code-inline tex2jax_ignore">git add</code> now to stage the <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> file, and then run <code class="code-inline tex2jax_ignore">git status</code> again:</div>
+<pre class="code-block tex2jax_ignore">$ git add CONTRIBUTING.md
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   README
+    modified:   CONTRIBUTING.md
+</pre>
+<div class="para" id="_staging_modified_files-6">Both files are staged and will go into your next commit. At this point, suppose you remember one little change that you want to make in <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> before you commit it. You open it again and make that change, and you’re ready to commit. However, let’s run <code class="code-inline tex2jax_ignore">git status</code> one more time:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   README
+    modified:   CONTRIBUTING.md
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   CONTRIBUTING.md
+</pre>
+<div class="para" id="_staging_modified_files-8">What the heck? Now <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> is listed as both staged <em class="emphasis">and</em> unstaged. How is that possible? It turns out that Git stages a file exactly as it is when you run the <code class="code-inline tex2jax_ignore">git add</code> command. If you commit now, the version of <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> as it was when you last ran the <code class="code-inline tex2jax_ignore">git add</code> command is how it will go into the commit, not the version of the file as it looks in your working directory when you run <code class="code-inline tex2jax_ignore">git commit</code>. If you modify a file after you run <code class="code-inline tex2jax_ignore">git add</code>, you have to run <code class="code-inline tex2jax_ignore">git add</code> again to stage the latest version of the file:</div>
+<pre class="code-block tex2jax_ignore">$ git add CONTRIBUTING.md
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   README
+    modified:   CONTRIBUTING.md
+</pre></section><section class="paragraphs" id="_short_status"><h4 class="heading"><span class="title">Short Status.</span></h4>
+<div class="para" id="_short_status-2">While the <code class="code-inline tex2jax_ignore">git status</code> output is pretty comprehensive, it’s also quite wordy. Git also has a short status flag so you can see your changes in a more compact way. If you run <code class="code-inline tex2jax_ignore">git status -s</code> or <code class="code-inline tex2jax_ignore">git status --short</code> you get a far more simplified output from the command:</div>
+<pre class="code-block tex2jax_ignore">$ git status -s
+ M README
+MM Rakefile
+A  lib/git.rb
+M  lib/simplegit.rb
+?? LICENSE.txt
+</pre>
+<div class="para" id="_short_status-4">New files that aren’t tracked have a <code class="code-inline tex2jax_ignore">??</code> next to them, new files that have been added to the staging area have an <code class="code-inline tex2jax_ignore">A</code>, modified files have an <code class="code-inline tex2jax_ignore">M</code> and so on. There are two columns to the output — the left-hand column indicates the status of the staging area and the right-hand column indicates the status of the working tree. So for example in that output, the <code class="code-inline tex2jax_ignore">README</code> file is modified in the working directory but not yet staged, while the <code class="code-inline tex2jax_ignore">lib/simplegit.rb</code> file is modified and staged. The <code class="code-inline tex2jax_ignore">Rakefile</code> was modified, staged and then modified again, so there are changes to it that are both staged and unstaged.</div></section><section class="paragraphs" id="_ignoring"><h4 class="heading"><span class="title">Ignoring Files.</span></h4>
+<div class="para" id="_ignoring-2">Often, you’ll have a class of files that you don’t want Git to automatically add or even show you as being untracked. These are generally automatically generated files such as log files or files produced by your build system. In such cases, you can create a file listing patterns to match them named <code class="code-inline tex2jax_ignore">.gitignore</code>. Here is an example <code class="code-inline tex2jax_ignore">.gitignore</code> file:</div>
+<pre class="code-block tex2jax_ignore">$ cat .gitignore
+*.[oa]
+*~
+</pre>
+<div class="para" id="_ignoring-4">The first line tells Git to ignore any files ending in “.o” or “.a” — object and archive files that may be the product of building your code. The second line tells Git to ignore all files whose names end with a tilde (<code class="code-inline tex2jax_ignore">~</code>), which is used by some text editors  to mark temporary files. You may also include a log, tmp, or pid directory; automatically generated documentation; and so on. Setting up a <code class="code-inline tex2jax_ignore">.gitignore</code> file for your new repository before you get going is generally a good idea so you don’t accidentally commit files that you really don’t want in your Git repository. </div>
+<div class="para" id="_ignoring-5">The rules for the patterns you can put in the <code class="code-inline tex2jax_ignore">.gitignore</code> file are as follows:</div>
+<div class="para logical" id="_ignoring-6"><ul class="disc" id="_ignoring-6-1">
+<li id="_ignoring-6-1-1"><div class="para" id="_ignoring-6-1-1-1">Blank lines or lines starting with <code class="code-inline tex2jax_ignore">#</code> are ignored. </div></li>
+<li id="_ignoring-6-1-2"><div class="para" id="_ignoring-6-1-2-1">Standard glob patterns work, and will be applied recursively throughout the entire working tree.</div></li>
+<li id="_ignoring-6-1-3"><div class="para" id="_ignoring-6-1-3-1">You can start patterns with a forward slash (<code class="code-inline tex2jax_ignore">/</code>) to avoid recursivity. </div></li>
+<li id="_ignoring-6-1-4"><div class="para" id="_ignoring-6-1-4-1">You can end patterns with a forward slash (<code class="code-inline tex2jax_ignore">/</code>) to specify a directory. </div></li>
+<li id="_ignoring-6-1-5"><div class="para" id="_ignoring-6-1-5-1">You can negate a pattern by starting it with an exclamation point (<code class="code-inline tex2jax_ignore">!</code>). </div></li>
+</ul></div>
+<div class="para" id="_ignoring-7">Glob patterns are like simplified regular expressions that shells use. An asterisk (<code class="code-inline tex2jax_ignore">*</code>) matches zero or more characters; <code class="code-inline tex2jax_ignore">[abc]</code> matches any character inside the brackets (in this case a, b, or c); a question mark (<code class="code-inline tex2jax_ignore">?</code>) matches a single character; and brackets enclosing characters separated by a hyphen (<code class="code-inline tex2jax_ignore">[0-9]</code>) matches any character between them (in this case 0 through 9). You can also use two asterisks to match nested directories; <code class="code-inline tex2jax_ignore">a/**/z</code> would match <code class="code-inline tex2jax_ignore">a/z</code>, <code class="code-inline tex2jax_ignore">a/b/z</code>, <code class="code-inline tex2jax_ignore">a/b/c/z</code>, and so on. </div>
+<div class="para" id="_ignoring-8">Here is another example <code class="code-inline tex2jax_ignore">.gitignore</code> file:</div>
+<pre class="code-block tex2jax_ignore"># ignore all .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in any directory named build
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+</pre>
+<details id="_ignoring-10" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="_ignoring-10-1">Tip: GitHub maintains a fairly comprehensive list of good <code class="code-inline tex2jax_ignore">.gitignore</code> file examples for dozens of projects and languages at <a class="external" href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a><details class="ptx-footnote" aria-live="polite" id="_ignoring-10-1-3"><summary class="ptx-footnote__number" title="Footnote 4.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="_ignoring-10-1-3"><code class="code-inline tex2jax_ignore">github.com/github/gitignore</code></div></details> if you want a starting point for your project.</div></div></details><div class="para" id="_ignoring-11">Note: In the simple case, a repository might have a single <code class="code-inline tex2jax_ignore">.gitignore</code> file in its root directory, which applies recursively to the entire repository. However, it is also possible to have additional <code class="code-inline tex2jax_ignore">.gitignore</code> files in subdirectories. The rules in these nested <code class="code-inline tex2jax_ignore">.gitignore</code> files apply only to the files under the directory where they are located. The Linux kernel source repository has 206 <code class="code-inline tex2jax_ignore">.gitignore</code> files.</div>
+<div class="para" id="_ignoring-12">It is beyond the scope of this book to get into the details of multiple <code class="code-inline tex2jax_ignore">.gitignore</code> files; see <code class="code-inline tex2jax_ignore">man gitignore</code> for the details.</div></section><section class="paragraphs" id="_git_diff_staged"><h4 class="heading"><span class="title">Viewing Your Staged and Unstaged Changes.</span></h4>
+<div class="para" id="_git_diff_staged-2">If the <code class="code-inline tex2jax_ignore">git status</code> command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the <code class="code-inline tex2jax_ignore">git diff</code> command. We’ll cover <code class="code-inline tex2jax_ignore">git diff</code> in more detail later, but you’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Although <code class="code-inline tex2jax_ignore">git status</code> answers those questions very generally by listing the file names, <code class="code-inline tex2jax_ignore">git diff</code> shows you the exact lines added and removed — the patch, as it were.</div>
+<div class="para" id="_git_diff_staged-3">Let’s say you edit and stage the <code class="code-inline tex2jax_ignore">README</code> file again and then edit the <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> file without staging it. If you run your <code class="code-inline tex2jax_ignore">git status</code> command, you once again see something like this:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    modified:   README
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   CONTRIBUTING.md
+</pre>
+<div class="para" id="_git_diff_staged-5">To see what you’ve changed but not yet staged, type <code class="code-inline tex2jax_ignore">git diff</code> with no other arguments:</div>
+<pre class="code-block tex2jax_ignore">$ git diff
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 8ebb991..643e24f 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -65,7 +65,8 @@ branch directly, things can get messy.
+ Please include a nice description of your changes when you submit your PR;
+ if we have to read the whole diff to figure out why you're contributing
+ in the first place, you're less likely to get feedback and have your change
+-merged in.
++merged in. Also, split your changes into comprehensive chunks if your patch is
++longer than a dozen lines.
+
+ If you are starting to work on a particular area, feel free to submit a PR
+ that highlights your work in progress (and note in the PR title that it's
+</pre>
+<div class="para" id="_git_diff_staged-7">That command compares what is in your working directory with what is in your staging area. The result tells you the changes you’ve made that you haven’t yet staged.</div>
+<div class="para" id="_git_diff_staged-8">If you want to see what you’ve staged that will go into your next commit, you can use <code class="code-inline tex2jax_ignore">git diff --staged</code>. This command compares your staged changes to your last commit:</div>
+<pre class="code-block tex2jax_ignore">$ git diff --staged
+diff --git a/README b/README
+new file mode 100644
+index 0000000..03902a1
+--- /dev/null
++++ b/README
+@@ -0,0 +1 @@
++My Project
+</pre>
+<div class="para" id="_git_diff_staged-10">It’s important to note that <code class="code-inline tex2jax_ignore">git diff</code> by itself doesn’t show all changes made since your last commit — only changes that are still unstaged. If you’ve staged all of your changes, <code class="code-inline tex2jax_ignore">git diff</code> will give you no output.</div>
+<div class="para" id="_git_diff_staged-11">For another example, if you stage the <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> file and then edit it, you can use <code class="code-inline tex2jax_ignore">git diff</code> to see the changes in the file that are staged and the changes that are unstaged. If our environment looks like this:</div>
+<pre class="code-block tex2jax_ignore">$ git add CONTRIBUTING.md
+$ echo '# test line' &gt;&gt; CONTRIBUTING.md
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    modified:   CONTRIBUTING.md
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   CONTRIBUTING.md
+</pre>
+<div class="para" id="_git_diff_staged-13">Now you can use <code class="code-inline tex2jax_ignore">git diff</code> to see what is still unstaged:</div>
+<pre class="code-block tex2jax_ignore">$ git diff
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 643e24f..87f08c8 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -119,3 +119,4 @@ at the
+ ## Starter Projects
+
+ See our [projects list](https://github.com/libgit2/libgit2/blob/development/PROJECTS.md).
++# test line
+</pre>
+<div class="para" id="_git_diff_staged-15">and <code class="code-inline tex2jax_ignore">git diff --cached</code> to see what you’ve staged so far (<code class="code-inline tex2jax_ignore">--staged</code> and <code class="code-inline tex2jax_ignore">--cached</code> are synonyms):</div>
+<div class="para" id="_git_diff_staged-16"> <pre class="code-block tex2jax_ignore">$ git diff --cached
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 8ebb991..643e24f 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -65,7 +65,8 @@ branch directly, things can get messy.
+ Please include a nice description of your changes when you submit your PR;
+ if we have to read the whole diff to figure out why you're contributing
+ in the first place, you're less likely to get feedback and have your change
+-merged in.
++merged in. Also, split your changes into comprehensive chunks if your patch is
++longer than a dozen lines.
+
+ If you are starting to work on a particular area, feel free to submit a PR
+ that highlights your work in progress (and note in the PR title that it is so.
+</pre>
+</div></section><section class="paragraphs" id="_committing_changes"><h4 class="heading"><span class="title">Committing Your Changes.</span></h4>
+<div class="para" id="_committing_changes-2">Now that your staging area is set up the way you want it, you can commit your changes. Remember that anything that is still unstaged — any files you have created or modified that you haven’t run <code class="code-inline tex2jax_ignore">git add</code> on since you edited them — won’t go into this commit. They will stay as modified files on your disk. In this case, let’s say that the last time you ran <code class="code-inline tex2jax_ignore">git status</code>, you saw that everything was staged, so you’re ready to commit your changes. The simplest way to commit is to type <code class="code-inline tex2jax_ignore">git commit</code>:</div>
+<pre class="code-block tex2jax_ignore">$ git commit
+</pre>
+<div class="para" id="_committing_changes-4">Doing so launches your editor of choice.</div>
+<div class="para" id="_committing_changes-5">Note: This is set by your shell’s <code class="code-inline tex2jax_ignore">EDITOR</code> environment variable, although you can configure it with whatever you want using the <code class="code-inline tex2jax_ignore">git config - -global core.editor</code> command as you saw in the previous section.</div>
+<div class="para" id="_committing_changes-6">The editor displays the following text:</div>
+<pre class="code-block tex2jax_ignore"># Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch main
+# Your branch is up-to-date with 'origin/main'.
+#
+# Changes to be committed:
+#   new file:   README
+#   modified:   CONTRIBUTING.md
+#
+~
+~
+~
+".git/COMMIT_EDITMSG" 9L, 283C
+</pre>
+<div class="para" id="_committing_changes-8">You can see that the default commit message contains the latest output of the <code class="code-inline tex2jax_ignore">git status</code> command commented out and one empty line on top. You can remove these comments and type your commit message, or you can leave them there to help you remember what you’re committing.</div>
+<div class="para" id="_committing_changes-9">Note: For an even more explicit reminder of what you’ve modified, you can pass the <code class="code-inline tex2jax_ignore">-v</code> option to <code class="code-inline tex2jax_ignore">git commit</code>. Doing so also puts the diff of your change in the editor so you can see exactly what changes you’re committing.</div>
+<div class="para" id="_committing_changes-10">When you exit the editor, Git creates your commit with that commit message (with the comments and diff stripped out).</div>
+<div class="para" id="_committing_changes-11">Alternatively, you can type your commit message inline with the <code class="code-inline tex2jax_ignore">commit</code> command by specifying it after a <code class="code-inline tex2jax_ignore">-m</code> flag, like this:</div>
+<pre class="code-block tex2jax_ignore">$ git commit -m "Story 182: fix benchmarks for speed"
+[main 463dc4f] Story 182: fix benchmarks for speed
+ 2 files changed, 2 insertions(+)
+ create mode 100644 README
+</pre>
+<div class="para" id="_committing_changes-13">Now you’ve created your first commit! You can see that the commit has given you some output about itself: which branch you committed to (<code class="code-inline tex2jax_ignore">main</code>), what SHA-1 checksum the commit has (<code class="code-inline tex2jax_ignore">463dc4f</code>), how many files were changed, and statistics about lines added and removed in the commit.</div>
+<div class="para" id="_committing_changes-14">Remember that the commit records the snapshot you set up in your staging area. Anything you didn’t stage is still sitting there modified; you can do another commit to add it to your history. Every time you perform a commit, you’re recording a snapshot of your project that you can revert to or compare to later.</div></section><section class="paragraphs" id="_skipping_the_staging_area"><h4 class="heading"><span class="title">Skipping the Staging Area.</span></h4>
+<div class="para" id="_skipping_the_staging_area-2">Although it can be amazingly useful for crafting commits exactly how you want them, the staging area is sometimes a bit more complex than you need in your workflow. If you want to skip the staging area, Git provides a simple shortcut. Adding the <code class="code-inline tex2jax_ignore">-a</code> option to the <code class="code-inline tex2jax_ignore">git commit</code> command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the <code class="code-inline tex2jax_ignore">git add</code> part:</div>
+<pre class="code-block tex2jax_ignore">$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   CONTRIBUTING.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ git commit -a -m 'Add new benchmarks'
+[main 83e38c7] Add new benchmarks
+ 1 file changed, 5 insertions(+), 0 deletions(-)
+</pre>
+<div class="para" id="_skipping_the_staging_area-4">Notice how you don’t have to run <code class="code-inline tex2jax_ignore">git add</code> on the <code class="code-inline tex2jax_ignore">CONTRIBUTING.md</code> file in this case before you commit. That’s because the <code class="code-inline tex2jax_ignore">-a</code> flag includes all changed files. This is convenient, but be careful; sometimes this flag will cause you to include unwanted changes.</div></section><section class="paragraphs" id="_removing_files"><h4 class="heading"><span class="title">Removing Files.</span></h4>
+<div class="para" id="_removing_files-2">To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit. The <code class="code-inline tex2jax_ignore">git rm</code> command does that, and also removes the file from your working directory so you don’t see it as an untracked file the next time around.</div>
+<div class="para" id="_removing_files-3">If you simply remove the file from your working directory, it shows up under the “Changes not staged for commit” (that is, <em class="emphasis">unstaged</em>) area of your <code class="code-inline tex2jax_ignore">git status</code> output:</div>
+<pre class="code-block tex2jax_ignore">$ rm PROJECTS.md
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes not staged for commit:
+  (use "git add/rm &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+        deleted:    PROJECTS.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+<div class="para" id="_removing_files-5">Then, if you run <code class="code-inline tex2jax_ignore">git rm</code>, it stages the file’s removal:</div>
+<pre class="code-block tex2jax_ignore">$ git rm PROJECTS.md
+rm 'PROJECTS.md'
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    deleted:    PROJECTS.md
+</pre>
+<div class="para" id="_removing_files-7">The next time you commit, the file will be gone and no longer tracked. If you modified the file or had already added it to the staging area, you must force the removal with the <code class="code-inline tex2jax_ignore">-f</code> option. This is a safety feature to prevent accidental removal of data that hasn’t yet been recorded in a snapshot and that can’t be recovered from Git.</div>
+<div class="para" id="_removing_files-8">Another useful thing you may want to do is to keep the file in your working tree but remove it from your staging area. In other words, you may want to keep the file on your hard drive but not have Git track it anymore. This is particularly useful if you forgot to add something to your <code class="code-inline tex2jax_ignore">.gitignore</code> file and accidentally staged it, like a large log file or a bunch of <code class="code-inline tex2jax_ignore">.a</code> compiled files. To do this, use the <code class="code-inline tex2jax_ignore">--cached</code> option:</div>
+<pre class="code-block tex2jax_ignore">$ git rm --cached README
+</pre>
+<div class="para" id="_removing_files-10">You can pass files, directories, and file-glob patterns to the <code class="code-inline tex2jax_ignore">git rm</code> command. That means you can do things such as:</div>
+<pre class="code-block tex2jax_ignore">$ git rm log/\*.log
+</pre>
+<div class="para" id="_removing_files-12">Note the backslash (<code class="code-inline tex2jax_ignore">\</code>) in front of the <code class="code-inline tex2jax_ignore">*</code>. This is necessary because Git does its own filename expansion in addition to your shell’s filename expansion. This command removes all files that have the <code class="code-inline tex2jax_ignore">.log</code> extension in the <code class="code-inline tex2jax_ignore">log/</code> directory. Or, you can do something like this:</div>
+<pre class="code-block tex2jax_ignore">$ git rm \*~
+</pre>
+<div class="para" id="_removing_files-14">This command removes all files whose names end with a <code class="code-inline tex2jax_ignore">~</code>. </div></section><section class="paragraphs" id="_git_mv"><h4 class="heading"><span class="title">Moving Files.</span></h4>
+<div class="para" id="_git_mv-2">Unlike many other VCSs, Git doesn’t explicitly track file movement. If you rename a file in Git, no metadata is stored in Git that tells it you renamed the file. However, Git is pretty smart about figuring that out after the fact — we’ll deal with detecting file movement a bit later.</div>
+<div class="para" id="_git_mv-3">Thus it’s a bit confusing that Git has a <code class="code-inline tex2jax_ignore">mv</code> command. If you want to rename a file in Git, you can run something like:</div>
+<pre class="code-block tex2jax_ignore">$ git mv file_from file_to
+</pre>
+<div class="para" id="_git_mv-5">and it works fine. In fact, if you run something like this and look at the status, you’ll see that Git considers it a renamed file:</div>
+<pre class="code-block tex2jax_ignore">$ git mv README.md README
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    renamed:    README.md -&gt; README
+</pre>
+<div class="para" id="_git_mv-7">However, this is equivalent to running something like this:</div>
+<pre class="code-block tex2jax_ignore">$ mv README.md README
+$ git rm README.md
+$ git add README
+</pre>
+<div class="para" id="_git_mv-9">Git figures out that it’s a rename implicitly, so it doesn’t matter if you rename a file that way or with the <code class="code-inline tex2jax_ignore">mv</code> command. The only real difference is that <code class="code-inline tex2jax_ignore">git mv</code> is one command instead of three — it’s a convenience function. More importantly, you can use any tool you like to rename a file, and address the <code class="code-inline tex2jax_ignore">add</code>/<code class="code-inline tex2jax_ignore">rm</code> later, before you commit.</div></section></section><section class="subsection" id="_viewing_history"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="space"> </span><span class="title">Viewing the Commit History</span>
+</h3>
+<div class="para" id="_viewing_history-2">After you have created several commits, or if you have cloned a repository with an existing commit history, you’ll probably want to look back to see what has happened. The most basic and powerful tool to do this is the <code class="code-inline tex2jax_ignore">git log</code> command.</div>
+<div class="para" id="_viewing_history-3">These examples use a very simple project called “simplegit”. To get the project, run:</div>
+<pre class="code-block tex2jax_ignore">$ git clone https://github.com/schacon/simplegit-progit
+</pre>
+<div class="para" id="_viewing_history-5">When you run <code class="code-inline tex2jax_ignore">git log</code> in this project, you should get output that looks something like this:</div>
+<pre class="code-block tex2jax_ignore">$ git log
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    Change version number
+
+commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sat Mar 15 16:40:33 2008 -0700
+
+    Remove unnecessary test
+
+commit a11bef06a3f659402fe7563abf99ad00de2209e6
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sat Mar 15 10:31:28 2008 -0700
+
+    Initial commit
+</pre>
+<div class="para" id="_viewing_history-7">By default, with no arguments, <code class="code-inline tex2jax_ignore">git log</code> lists the commits made in that repository in reverse chronological order; that is, the most recent commits show up first. As you can see, this command lists each commit with its SHA-1 checksum, the author’s name and email, the date written, and the commit message.</div>
+<div class="para" id="_viewing_history-8">A huge number and variety of options to the <code class="code-inline tex2jax_ignore">git log</code> command are available to show you exactly what you’re looking for. If interested, see <a class="external" href="https://www.git-scm.com/docs/git-log" target="_blank">git-log - Show commit logs</a><details class="ptx-footnote" aria-live="polite" id="_viewing_history-8-3"><summary class="ptx-footnote__number" title="Footnote 4.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="_viewing_history-8-3"><code class="code-inline tex2jax_ignore">www.git-scm.com/docs/git-log</code></div></details> for the details, but don’t worry about the overwhelming number of options — be reassured that you don’t need them right now.</div>
+<div class="para" id="_viewing_history-9">Here, we’ll show you only the most popular.</div>
+<div class="para" id="_viewing_history-10">One of the more helpful options is <code class="code-inline tex2jax_ignore">-p</code> or <code class="code-inline tex2jax_ignore">--patch</code>, which shows the difference (the <em class="emphasis">patch</em> output) introduced in each commit. You can also limit the number of log entries displayed, such as using <code class="code-inline tex2jax_ignore">-2</code> to show only the last two entries.</div>
+<pre class="code-block tex2jax_ignore">$ git log -p -2
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    Change version number
+
+diff --git a/Rakefile b/Rakefile
+index a874b73..8f94139 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -5,7 +5,7 @@ require 'rake/gempackagetask'
+ spec = Gem::Specification.new do |s|
+     s.platform  =   Gem::Platform::RUBY
+     s.name      =   "simplegit"
+-    s.version   =   "0.1.0"
++    s.version   =   "0.1.1"
+     s.author    =   "Scott Chacon"
+     s.email     =   "schacon@gee-mail.com"
+     s.summary   =   "A simple gem for using Git in Ruby code."
+
+commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Sat Mar 15 16:40:33 2008 -0700
+
+    Remove unnecessary test
+
+diff --git a/lib/simplegit.rb b/lib/simplegit.rb
+index a0a60ae..47c6340 100644
+--- a/lib/simplegit.rb
++++ b/lib/simplegit.rb
+@@ -18,8 +18,3 @@ class SimpleGit
+     end
+
+ end
+-
+-if $0 == __FILE__
+-  git = SimpleGit.new
+-  puts git.show
+-end
+</pre>
+<div class="para" id="_viewing_history-12">This option displays the same information but with a diff directly following each entry. This is very helpful for code review or to quickly browse what happened during a series of commits that a collaborator has added.</div></section><section class="subsection" id="_remote_repos"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="space"> </span><span class="title">Working with Remotes</span>
+</h3>
+<div class="para" id="_remote_repos-2">To be able to collaborate on any Git project, you need to know how to manage your remote repositories. Remote repositories are versions of your project that are hosted on the Internet or network somewhere. You can have several of them, each of which generally is either read-only or read/write for you. Collaborating with others involves managing these remote repositories and pushing and pulling data to and from them when you need to share work. Managing remote repositories includes knowing how to add remote repositories, remove remotes that are no longer valid, manage various remote branches and define them as being tracked or not, and more. In this section, we’ll cover some of these remote-management skills.</div>
+<div class="para" id="_remote_repos-3">
+<em class="emphasis">Remote repositories can be on your local machine.</em> It is entirely possible that you can be working with a “remote” repository that is, in fact, on the same host you are. The word “remote” does not necessarily imply that the repository is somewhere else on the network or Internet, only that it is elsewhere. Working with such a remote repository would still involve all the standard pushing, pulling and fetching operations as with any other remote.</div>
+<section class="paragraphs" id="_showing_your_remotes"><h4 class="heading"><span class="title">Showing Your Remotes.</span></h4>
+<div class="para" id="_showing_your_remotes-2">To see which remote servers you have configured, you can run the <code class="code-inline tex2jax_ignore">git remote</code> command. It lists the shortnames of each remote handle you’ve specified. If you’ve cloned your repository, you should at least see <code class="code-inline tex2jax_ignore">origin</code> — that is the default name Git gives to the server you cloned from:</div>
+<pre class="code-block tex2jax_ignore">$ git clone https://github.com/schacon/ticgit
+Cloning into 'ticgit'...
+remote: Reusing existing pack: 1857, done.
+remote: Total 1857 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (1857/1857), 374.35 KiB | 268.00 KiB/s, done.
+Resolving deltas: 100% (772/772), done.
+Checking connectivity... done.
+$ cd ticgit
+$ git remote
+origin
+</pre>
+<div class="para" id="_showing_your_remotes-4">You can also specify <code class="code-inline tex2jax_ignore">-v</code>, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:</div>
+<pre class="code-block tex2jax_ignore">$ git remote -v
+origin  https://github.com/schacon/ticgit (fetch)
+origin  https://github.com/schacon/ticgit (push)
+</pre>
+<div class="para" id="_showing_your_remotes-6">If you have more than one remote, the command lists them all. For example, a repository with multiple remotes for working with several collaborators might look something like this.</div>
+<pre class="code-block tex2jax_ignore">$ cd grit
+$ git remote -v
+bakkdoor  https://github.com/bakkdoor/grit (fetch)
+bakkdoor  https://github.com/bakkdoor/grit (push)
+cho45     https://github.com/cho45/grit (fetch)
+cho45     https://github.com/cho45/grit (push)
+defunkt   https://github.com/defunkt/grit (fetch)
+defunkt   https://github.com/defunkt/grit (push)
+koke      git://github.com/koke/grit.git (fetch)
+koke      git://github.com/koke/grit.git (push)
+origin    git@github.com:mojombo/grit.git (fetch)
+origin    git@github.com:mojombo/grit.git (push)
+</pre>
+<div class="para" id="_showing_your_remotes-8">This means we can pull contributions from any of these users pretty easily. We may additionally have permission to push to one or more of these, though we can’t tell that here.</div></section><section class="paragraphs" id="_adding_remote_repositories"><h4 class="heading"><span class="title">Adding Remote Repositories.</span></h4>
+<div class="para" id="_adding_remote_repositories-2">We’ve mentioned and given some demonstrations of how the <code class="code-inline tex2jax_ignore">git clone</code> command implicitly adds the <code class="code-inline tex2jax_ignore">origin</code> remote for you. Here’s how to add a new remote explicitly. To add a new remote Git repository as a shortname you can reference easily, run <code class="code-inline tex2jax_ignore">git remote add &lt;shortname&gt; &lt;url&gt;</code>:</div>
+<pre class="code-block tex2jax_ignore">$ git remote
+origin
+$ git remote add pb https://github.com/paulboone/ticgit
+$ git remote -v
+origin  https://github.com/schacon/ticgit (fetch)
+origin  https://github.com/schacon/ticgit (push)
+pb  https://github.com/paulboone/ticgit (fetch)
+pb  https://github.com/paulboone/ticgit (push)
+</pre>
+<div class="para" id="_adding_remote_repositories-4">Now you can use the string <code class="code-inline tex2jax_ignore">pb</code> on the command line in lieu of the whole URL. For example, if you want to fetch all the information that Paul has but that you don’t yet have in your repository, you can run <code class="code-inline tex2jax_ignore">git fetch pb</code>:</div>
+<pre class="code-block tex2jax_ignore">$ git fetch pb
+remote: Counting objects: 43, done.
+remote: Compressing objects: 100% (36/36), done.
+remote: Total 43 (delta 10), reused 31 (delta 5)
+Unpacking objects: 100% (43/43), done.
+From https://github.com/paulboone/ticgit
+ * [new branch]      main     -&gt; pb/main
+ * [new branch]      ticgit     -&gt; pb/ticgit
+</pre>
+<div class="para" id="_adding_remote_repositories-6">Paul’s <code class="code-inline tex2jax_ignore">main</code> branch is now accessible locally as <code class="code-inline tex2jax_ignore">pb/main</code> — you can merge it into one of your branches, or you can check out a local branch at that point if you want to inspect it. We’ll go over what branches are and how to use them in much more detail in the next subsection on Git Branching.</div></section><section class="paragraphs" id="_fetching_and_pulling"><h4 class="heading"><span class="title">Fetching and Pulling from Your Remotes.</span></h4>
+<div class="para" id="_fetching_and_pulling-2">As you just saw, to get data from your remote projects, you can run:</div>
+<pre class="code-block tex2jax_ignore">$ git fetch &lt;remote&gt;
+</pre>
+<div class="para" id="_fetching_and_pulling-4">The command  goes out to that remote project and pulls down all the data from that remote project that you don’t have yet. After you do this, you should have references to all the branches from that remote, which you can merge in or inspect at any time.</div>
+<div class="para" id="_fetching_and_pulling-5">If you clone a repository, the command automatically adds that remote repository under the name “origin”. So, <code class="code-inline tex2jax_ignore">git fetch origin</code> fetches any new work that has been pushed to that server since you cloned (or last fetched from) it. It’s important to note that the <code class="code-inline tex2jax_ignore">git fetch</code> command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You have to merge it manually into your work when you’re ready.</div>
+<div class="para" id="_fetching_and_pulling-6">If your current branch is set up to track a remote branch (see the next section on Git Branching for more information), you can use the <code class="code-inline tex2jax_ignore">git pull</code> command to automatically fetch and then merge that remote branch into your current branch. This may be an easier or more comfortable workflow for you; and by default, the <code class="code-inline tex2jax_ignore">git clone</code> command automatically sets up your local <code class="code-inline tex2jax_ignore">main</code> branch to track the remote <code class="code-inline tex2jax_ignore">main</code> branch (or whatever the default branch is called) on the server you cloned from. Running <code class="code-inline tex2jax_ignore">git pull</code> generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on.</div>
+<div class="para" id="_fetching_and_pulling-7">Note: From git version 2.27 onward, <code class="code-inline tex2jax_ignore">git pull</code> will give a warning if the <code class="code-inline tex2jax_ignore">pull.rebase</code> variable is not set. Git will keep warning you until you set the variable.</div>
+<div class="para" id="_fetching_and_pulling-8">If you want the default behavior of git (fast-forward if possible, else create a merge commit): <code class="code-inline tex2jax_ignore">git config --global pull.rebase "false"</code>
+</div>
+<div class="para" id="_fetching_and_pulling-9">If you want to rebase when pulling: <code class="code-inline tex2jax_ignore">git config --global pull.rebase "true"</code>
+</div></section><section class="paragraphs" id="_pushing_remotes"><h4 class="heading"><span class="title">Pushing to Your Remotes.</span></h4>
+<div class="para" id="_pushing_remotes-2">When you have your project at a point that you want to share, you have to push it upstream. The command for this is simple: <code class="code-inline tex2jax_ignore">git push &lt;remote&gt; &lt;branch&gt;</code>. If you want to push your <code class="code-inline tex2jax_ignore">main</code> branch to your <code class="code-inline tex2jax_ignore">origin</code> server (again, cloning generally sets up both of those names for you automatically), then you can run this to push any commits you’ve done back up to the server:</div>
+<pre class="code-block tex2jax_ignore">$ git push origin main
+</pre>
+<div class="para" id="_pushing_remotes-4">This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to fetch their work first and incorporate it into yours before you’ll be allowed to push. See the next section on Git Branching for more detailed information on how to push to remote servers.</div></section></section><section class="conclusion" id="sec_git_basics-7"><h3 class="heading">Section Summary.<span></span>
+</h3>
+<div class="para" id="sec_git_basics-7-2">At this point, you can do all the basic local Git operations — creating or cloning a repository, making changes, staging and committing those changes, and viewing the history of all the changes the repository has been through. Next, we’ll cover Git’s killer feature: its branching model.</div></section><article class="exercise exercise-like" id="GitBasic"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone parsons_section" style="max-width: none;"><div data-component="parsons" class="parsons" id="opensource_1_GitBasic">
+<div class="parsons_question parsons-text"><div class="para" id="GitBasic-1-1">What is the correct order of Git commands to initialize a new repository, add a README, and make the first commit?</div></div>
+<pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-noindent="false">git init
+
+---
+git initial
+ #paired
+---
+git add README.md
+
+---
+git stage README.md
+ #paired
+---
+git commit -m "Initial commit"
+
+---
+git commit m- "Initial commit"
+ #paired
+---
+git status
+ #distractor</pre>
+</div></div></div></article><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_git_getting_started.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_git_branching.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
+</html>

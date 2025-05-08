@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr" data-legacy-colorscheme="blue_red">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-legacy                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Why OSS Matters</title>
+<link rel="canonical" href="https://runestone.academy/ns/books/published/opensource/sec_oss_matters.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;" rel="stylesheet">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Open Source">
+<meta property="book:author" content="Dr. Jan Pearce">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.6.2';
+</script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.11f2df1b38a61a3f.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="opensource" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="open-source.html"><span class="title">Open Source:</span> <span class="subtitle">What It Is and How to Contribute</span></a></h1>
+<p class="byline">Dr. Jan Pearce</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="meta_backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_oss_what_it_is.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_intro_oss.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_oss_source_code.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><span class="nav-runestone-controls"><button onclick="runestoneComponents.popupScratchAC()" class="activecode-toggle button" title="Open Scratch ActiveCode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf097;</span><span class="name">Scratch ActiveCode</span></button><button class="runestone-profile dropdown button" title="Profile"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf0d3;</span><span class="name">Profile</span><div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/ns/course/index">Course Home</a><a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/runestone/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/runestone/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div></button></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-dedication"><div class="toc-title-box"><a href="meta_frontmatter-4.html" class="internal"><span class="title">Dedication</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="meta_frontmatter-5.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-forward.html" class="internal"><span class="title">Forward</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_intro_oss.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Open Source Software (OSS)</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_what_it_is.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is Open Source Software?</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec_oss_matters.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Why OSS Matters</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#source-control" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Source Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#documentation" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_matters.html#experiencing-the-software-lifecycle" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Experiencing the Software Lifecycle</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_source_code.html" class="internal"><span class="codenumber">1.3</span> <span class="title">About Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_source_code" class="internal"><span class="codenumber">1.3.1</span> <span class="title">What is Source Sode</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_source_code.html#subsec_decompilation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">On Decompilation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_share_code.html" class="internal"><span class="codenumber">1.4</span> <span class="title">On Sharing Source Code</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#source-code-to-share-or-not-to-share" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Source Code: To Share, or Not To Share?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_share_code.html#the-value-of-sharing" class="internal"><span class="codenumber">1.4.2</span> <span class="title"><dfn class="terminology">The value of sharing</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_contributor_mountain.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Climbing Contributor Mountain</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#user" class="internal"><span class="codenumber">1.5.1</span> <span class="title"><dfn class="terminology">User</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#seeker" class="internal"><span class="codenumber">1.5.2</span> <span class="title"><dfn class="terminology">Seeker</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#collaborator" class="internal"><span class="codenumber">1.5.3</span> <span class="title"><dfn class="terminology">Collaborator</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_contributor_mountain.html#contributor" class="internal"><span class="codenumber">1.5.4</span> <span class="title"><dfn class="terminology">Contributor</dfn></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_oss_build_portfolio.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Building your OSS Portfolio</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#building-your-oss-portfolio" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Building Your OSS Portfolio</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_oss_build_portfolio.html#supplemental-materials" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Supplemental Materials</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_community.html" class="internal"><span class="codenumber">2</span> <span class="title">OSS Community and Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_community_global.html" class="internal"><span class="codenumber">2.1</span> <span class="title">The Challenges of Global Community</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_oss_third_culture.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The Synthetic Third Culture</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_qualities.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Qualities of an OSS Community</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_focus" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Focus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_maturity_history" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Maturity and History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_types_openness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Type of Openness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_commercial_ties" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Commercial Ties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_subgroups" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Subgroups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_skills" class="internal"><span class="codenumber">2.3.6</span> <span class="title">Skills</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_qualities.html#subsec_mentoring_training" class="internal"><span class="codenumber">2.3.7</span> <span class="title">Mentoring and Training</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_community_communication.html" class="internal"><span class="codenumber">2.4</span> <span class="title">OSS Community Communication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec_website" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Website</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_community_communication.html#subsec-secp" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Software Engineering Collaboration Platforms (SECP)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-repository" class="internal"><span class="codenumber">2.4.2.1</span> <span class="title">Repository</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-issue-tracker" class="internal"><span class="codenumber">2.4.2.2</span> <span class="title">Issue Tracker</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-merge-request" class="internal"><span class="codenumber">2.4.2.3</span> <span class="title">Merge Request</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsubsec-project-board" class="internal"><span class="codenumber">2.4.2.4</span> <span class="title">Project Board</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-other-tools" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Other Asynchronous Communication Tools</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_community_communication.html#subsec-synchronous_communication" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Synchronous Communications</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_dev_env.html" class="internal"><span class="codenumber">3</span> <span class="title">OSS Development Environment</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_shell.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Using the Command Line</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec_terms_terminals" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Terminals and Related Terms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-why_not_gui" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Why not a GUI?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-getting_terminal" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Accessing a Terminal Window on your Machine</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_shell.html#subsec-access_shell" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Your Shell</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Basic Shell Commands</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_basic_shell_commands.html#subsec-files_directories_privileges" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Files, Directories, and Privileges</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_dev_editors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">We All Need an Editor!</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_dev_virtualization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Virtualization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtualizaton" class="internal"><span class="codenumber">3.4.1</span> <span class="title">The What and Why of Virtualization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_virtual_machines" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Virtual Machines</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_dev_virtualization.html#subsec_containerization" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Containerization</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_git.html" class="internal"><span class="codenumber">4</span> <span class="title">Version Control with Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="git-why-version-control.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Why Version Control?</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="git-why-version-control.html#subsec_vcs_intro" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Version Control Systems</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_getting_started.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Getting Started with Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_types_version_control" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Types of Version Control</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_local_version_control_systems" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Local VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_centralized_version_control_systems" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Centralized VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_distributed_version_control_systems" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Distributed VCSs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_a_short_history_of_git" class="internal"><span class="codenumber">4.2.5</span> <span class="title">A Short History of Git</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#sec-what-is-git" class="internal"><span class="codenumber">4.2.6</span> <span class="title">What is Git?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_snapshots_not_differences" class="internal"><span class="codenumber">4.2.6.1</span> <span class="title">Snapshots, Not Differences</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_nearly_every_operation_is_local" class="internal"><span class="codenumber">4.2.6.2</span> <span class="title">Nearly Every Operation Is Local</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_has_integrity" class="internal"><span class="codenumber">4.2.6.3</span> <span class="title">Git Has Integrity</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_generally_only_adds_data" class="internal"><span class="codenumber">4.2.6.4</span> <span class="title">Git Generally Only Adds Data</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_the_three_states" class="internal"><span class="codenumber">4.2.6.5</span> <span class="title">The Three File States</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_organization" class="internal"><span class="codenumber">4.2.6.6</span> <span class="title">How Git is Organized</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_on_the_command_line" class="internal"><span class="codenumber">4.2.7</span> <span class="title">The Command Line</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing" class="internal"><span class="codenumber">4.2.8</span> <span class="title">Installing Git</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_linux" class="internal"><span class="codenumber">4.2.8.1</span> <span class="title">Installing on Linux</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#git_installing_on_macos" class="internal"><span class="codenumber">4.2.8.2</span> <span class="title">Installing on MacOS</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_installing_on_windows" class="internal"><span class="codenumber">4.2.8.3</span> <span class="title">Installing on Windows</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#_git_help" class="internal"><span class="codenumber">4.2.9</span> <span class="title">Getting Help</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_getting_started.html#sec_git_config" class="internal"><span class="codenumber">4.2.10</span> <span class="title">First-Time Git Setup</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_basics.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Git Basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_getting_a_repo" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Getting a Git Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_recording_changes_to_the_repository" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Recording Changes to the Repository</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_viewing_history" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Viewing the Commit History</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_basics.html#_remote_repos" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Working with Remotes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_branching.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Git Branching</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_branching.html#_git_branches_overview" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Branches in a Nutshell</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_undoing.html" class="internal"><span class="codenumber">4.5</span> <span class="title">"Undoing" in Git</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_git_undoing.html#_undoing" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Undoing Changes</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_git_github.html" class="internal"><span class="codenumber">4.6</span> <span class="title">GitHub - Git in the Cloud</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_contributing_to_a_project" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Contributing to a Project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_git_github.html#_maintaining_gh_project" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Maintaining a Project</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_licensing.html" class="internal"><span class="codenumber">5</span> <span class="title">Open Source Licensing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_about.html" class="internal"><span class="codenumber">5.1</span> <span class="title">About Licensing</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_about.html#subsec_important_IP_Terminology" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Important IP Terminology</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_typical.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Typical Open Source Licenses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_MIT" class="internal"><span class="codenumber">5.2.1</span> <span class="title">MIT License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec-Apache" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Apache License 2.0</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_typical.html#subsec_GNU_GPLv3" class="internal"><span class="codenumber">5.2.3</span> <span class="title">GNU General Public License v3.0</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_existing_communities.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Existing OSS Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-existing-projects" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Contributing to Existing Projects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_existing_communities.html#subsec-changing-licenses" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Changing Licenses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_licensing_none.html" class="internal"><span class="codenumber">5.4</span> <span class="title">No License</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_no_license" class="internal"><span class="codenumber">5.4.1</span> <span class="title">In the Absence of a License</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_licensing_none.html#subsec_users_no_license" class="internal"><span class="codenumber">5.4.2</span> <span class="title">For potential users</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_documentation.html" class="internal"><span class="codenumber">6</span> <span class="title">Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_scope.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Documentation Matters!</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec-docu_purpose" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Purpose of Documentation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_scope.html#subsec_why_needed" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Effective Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_involvement.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Documentation as Involvement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#sub-sec-how-documentation-suffers" class="internal"><span class="codenumber">6.2.1</span> <span class="title">How Documentation Suffers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_involvement.html#subsec-steps-to" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Getting Involved Through Documentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_docu_build.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Build Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#subsec_what_is_building" class="internal"><span class="codenumber">6.3.1</span> <span class="title">What is Building, Exactly?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_docu_build.html#living-with-complexity" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Living With Complexity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_issues_bugs.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Issue and Bug Documentation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#subsec_issues_bugs_overview" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Issues and Bugs, Oh My!</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sec_bug_trackers" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Issue and Bug Trackers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#what-issue-tracker-exactly" class="internal"><span class="codenumber">6.4.3</span> <span class="title"><dfn class="terminology">What is an Issue Tracker, Exactly?</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#sorting-through-the-issues" class="internal"><span class="codenumber">6.4.4</span> <span class="title"><dfn class="terminology">Sorting through the Issues</dfn></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#the-anatomy-of-a-good-bug-report" class="internal"><span class="codenumber">6.4.5</span> <span class="title">The Anatomy of a Good Bug Report</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_issues_bugs.html#triage" class="internal"><span class="codenumber">6.4.6</span> <span class="title">Bug Triage</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_contributing.html" class="internal"><span class="codenumber">7</span> <span class="title">Contribution: A Quick-Start Guide</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_contributing_quickstart.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Quick Start</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_contributing_projects.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Friendly Communities</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-3" class="internal"><span class="codenumber">7.2.1</span> <span class="title"><em class="emphasis">Firefox</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-4" class="internal"><span class="codenumber">7.2.2</span> <span class="title"><em class="emphasis">CHAOSS</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-5" class="internal"><span class="codenumber">7.2.3</span> <span class="title"><em class="emphasis">PreTeXt Authoring Software</em></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_contributing_projects.html#sec_contributing_projects-6" class="internal"><span class="codenumber">7.2.4</span> <span class="title"><em class="emphasis">Runestone Academy</em></span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="meta_backmatter.html" class="internal"><span class="title">Appendices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_git_cheat_sheet_pointer.html" class="internal"><span class="codenumber">A</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="a_git_cheat_sheet.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Git Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-getting-started" class="internal"><span class="codenumber">A.1.1</span> <span class="title">Getting started with a project</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-state" class="internal"><span class="codenumber">A.1.2</span> <span class="title">Current state</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-branching" class="internal"><span class="codenumber">A.1.3</span> <span class="title">Git branching</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-undoing" class="internal"><span class="codenumber">A.1.4</span> <span class="title">Git stash</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="a_git_cheat_sheet.html#a-git-restoring" class="internal"><span class="codenumber">A.1.5</span> <span class="title">Git Restoring/Reverting</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ap_bash_cheat_sheet_pointer.html" class="internal"><span class="codenumber">B</span> <span class="title">Shell Command Cheat Sheet</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ap_shell_cheat_sheet.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Bash Shell Cheat Sheet</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="list_of_symbols.html" class="internal"><span class="codenumber">C</span> <span class="title">Symbols Index</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="meta_backmatter-5.html" class="internal"><span class="title">Text Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_oss_matters"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Why OSS Matters</span>
+</h2>
+<section class="introduction" id="sec_oss_matters-2"><div class="para" id="sec_oss_matters-2-1">Because of the open nature of the source code, many credible organizations believe that OSS is at least comparable to proprietary software in the area of software security. And, security in nearly every type of software matters to some extent, often to a critical extent. A user of proprietary software must accept the level of security (as well as the lack thereof) that the software vendor is able and willing to provide, as well as the speed at which fixes and updates to the software are released. If the user is not willing to accept these limitations, they must simply choose a different vendor. Hence, some organizations such as the <a class="external" href="https://dodcio.defense.gov/Open-Source-Software-FAQ/" target="_blank">US Department of Defense</a><details class="ptx-footnote" aria-live="polite" id="sec_oss_matters-2-1-2"><summary class="ptx-footnote__number" title="Footnote 1.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec_oss_matters-2-1-2"><code class="code-inline tex2jax_ignore">dodcio.defense.gov/Open-Source-Software-FAQ/</code></div></details> require that all software either have a warranty or be open source. So, open source matters for reasons of security.</div>
+<div class="para" id="sec_oss_matters-2-2">Unfortunately, most people do not even read the legal terms and conditions for software packages before accepting them. A 2017 study entitled <a class="external" href="https://www.businessinsider.com/deloitte-study-91-percent-agree-terms-of-service-without-reading-2017-11?op=1" target="_blank">You’re not alone, no one reads terms of service agreements</a><details class="ptx-footnote" aria-live="polite" id="sec_oss_matters-2-2-2"><summary class="ptx-footnote__number" title="Footnote 1.2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec_oss_matters-2-2-2"><code class="code-inline tex2jax_ignore">businessinsider.com/deloitte-study-91-percent-agree-terms-of-service-without-reading-2017-11</code></div></details> found that over 90% of people do not read these statements before agreeing to them. Honestly, I am shocked that statistic is not even higher... So, everyone who does not read these is at the mercy of the developers, which might or might not be a safe choice. Open source should matter to those who do not read these license agreements because they and others can look at the source code.</div>
+<div class="para" id="sec_oss_matters-2-3">Did you realize that open source software is so incredibly prevalent that you would be pretty hard-pressed to not be using it regularly? Android and Apple iOS very heavily dominate the global market share for cell phone operating systems. However, the <a class="external" href="https://source.android.com/" target="_blank">Android</a><details class="ptx-footnote" aria-live="polite" id="sec_oss_matters-2-3-2"><summary class="ptx-footnote__number" title="Footnote 1.2.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec_oss_matters-2-3-2"><code class="code-inline tex2jax_ignore">source.android.com</code></div></details> system has more than three times as many users as Apple’s iOS, and Android is open source. <a class="external" href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux</a><details class="ptx-footnote" aria-live="polite" id="sec_oss_matters-2-3-4"><summary class="ptx-footnote__number" title="Footnote 1.2.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec_oss_matters-2-3-4"><code class="code-inline tex2jax_ignore">en.wikipedia.org/wiki/Linux</code></div></details> is a family of open source operating systems that powers the majority of the webpages on the Internet. Chrome is by far the most popular browser on the planet, and while it is not fully open source,  it is built on top of a number of OSS projects, the details of which can be found by going to "chrome://credits" in the Chrome browser’s URL bar. Even Apple iOS, which as mentioned above is the second most popular operating systems for cell phones, includes a lot of OSS components which are listed in "Settings &gt; General &gt; Legal and Regulatory". We will learn a lot more about open source licensing in <a href="ch_licensing.html" class="internal" title="Chapter 5: Open Source Licensing">Chapter 5</a>. So, OSS matters to everyone who uses a cell phone or searches the Internet. In fact, these are just examples, virtually any piece of software that the reader is using will likely include OSS components, so OSS should matter to <em class="emphasis">you</em>!</div>
+<div class="para" id="sec_oss_matters-2-4">OSS might also matter to you if you are a student or a learner because it is real. You can see into not only the source code but also into the process of making code improvements. And if you choose to go out into the real world looking for a job as a software developer, you will have a tremendous advantage if you can prove that you have experience in real software projects — ugly, messy, confusing, gigantic, real software projects.</div>
+<div class="para" id="sec_oss_matters-2-5">Without OSS, getting experience in real software projects requires access, and probably permission, to see the source code. For students, that access is usually limited to those who can get <em class="emphasis">internships</em> or positions in <em class="emphasis">co-op </em>programs. Not everyone has the opportunity to spend the summer interning with a company that does large-scale software development, meaning that too few students have the opportunity to work with large (proprietary/closed) code-bases. And even if they do, those students typically cannot show their work to anyone outside of the sponsoring company, and they sometimes cannot even discuss that work.</div>
+<div class="para" id="sec_oss_matters-2-6">In the world of OSS, the source code is available to anyone who wants to see it. Not only is the source code available — also available are all of the interesting challenges that go with managing large software projects. In this book, we explore a number of these challenges and help you engage in them in direct and practical ways.</div></section><section class="subsection" id="source-control"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="space"> </span><span class="title">Source Control</span>
+</h3>
+<div class="para" id="source-control-2">How do fifteen software engineers work on the same piece of software together? When two software engineers decide independently to edit the same line of code, what happens? In the world of OSS, we make use of version control systems to help tackle these kinds of problems. Without version control, it’s a disaster, which is why we cover version control in <a href="ch_git.html" class="internal" title="Chapter 4: Version Control with Git">Chapter 4</a>.</div></section><section class="subsection" id="documentation"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="space"> </span><span class="title">Documentation</span>
+</h3>
+<div class="para" id="documentation-2">There’s  a lot more to good software than just the code. How do you make sure people have the resources and knowledge they need to find and run (and/or contribute to) the software that you make? Beautiful code that doesn’t get used is exactly as useful as code that was never written. Even the very best code can still have bugs, which means the ability to find and eliminate bugs is a critical skill for all software engineers. If you don’t know how to find the bugs your users find, you’re in trouble. Which is why we cover documentation  and the mechanics of fixing code in <a href="ch_documentation.html" class="internal" title="Chapter 6: Documentation">Chapter 6</a>.</div></section><section class="subsection" id="experiencing-the-software-lifecycle"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="space"> </span><span class="title">Experiencing the Software Lifecycle</span>
+</h3>
+<div class="para" id="experiencing-the-software-lifecycle-2">There’s a saying about software programs: they’re never finished, only abandoned. There’s always more work to do to improve any software project. The thing that makes OSS so unique, and so interesting to the aspiring programmer, is that anyone can participate in an OSS project. Many large projects can benefit from contribution by even novice programmers. There are also more OSS projects now than ever before, with an almost unlimited number of interesting problems. Want to learn how web browsers work? Hack on Firefox. Want to put together an awesome multilingual book reader for people with vision impairment? Hack on Pretext or espeak.</div>
+<div class="para" id="experiencing-the-software-lifecycle-3">Honestly, the primary key is to find a project that interests you.</div></section><article class="exercise exercise-like" id="ex-finding-a-project"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise: Finding a Cool Project.</span>
+</h3>
+<div class="para" id="ex-finding-a-project-2">Imagine that you have just been hired as a programmer for OSS Inc., and your manager has told you that you must spend 20% of your time to work on a OSS project that matters to you.</div>
+<div class="para logical" id="ex-finding-a-project-3"><ol class="decimal" id="ex-finding-a-project-3-1">
+<li id="ex-finding-a-project-3-1-1"><div class="para" id="p-derived-ex-finding-a-project-3-1-1">First, search the web and <em class="emphasis">find sites that host OSS projects</em>. There are many. Bookmark these so that you can come back to them later.</div></li>
+<li id="ex-finding-a-project-3-1-2"><div class="para" id="p-derived-ex-finding-a-project-3-1-2">Second, <em class="emphasis">browse through several of these sites</em> and find one or more projects that are interesting to you. You might be interested in projects that benefit others. You might be interested in tools that support work that you do. Or, it might be that you find something that strikes your fancy that you never considered before! Take this as an opportunity to explore broadly.</div></li>
+<li id="ex-finding-a-project-3-1-3"><div class="para" id="p-derived-ex-finding-a-project-3-1-3">After you find an open source project of interest, <em class="emphasis">write a blog post about it</em>. At this point, the most important thing you can probably do is to explain why the project is interesting to you.</div></li>
+</ol></div>
+<div class="para" id="ex-finding-a-project-4">If you don’t have a blog, set one up for free! Visit <a class="external" href="https://www.blogger.com/about/?r=1-null_user" target="_blank">Blogger</a><details class="ptx-footnote" aria-live="polite" id="ex-finding-a-project-4-2"><summary class="ptx-footnote__number" title="Footnote 1.2.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="ex-finding-a-project-4-2"><code class="code-inline tex2jax_ignore">blogger.com</code></div></details> or <a class="external" href="http://wordpress.com/" target="_blank">WordPress</a><details class="ptx-footnote" aria-live="polite" id="ex-finding-a-project-4-4"><summary class="ptx-footnote__number" title="Footnote 1.2.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="ex-finding-a-project-4-4"><code class="code-inline tex2jax_ignore">wordress.com</code></div></details>; setting up a new blog is easy. Blogs are widely used in the FOSS world by project members to share what they’re doing. Your voice will become one of many, and who knows — your blog might become a resource that other students later look to for inspiration when they are looking for projects to get involved in!</div></article><article class="exercise exercise-like" id="OssMatters"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="opensource_1_OssMatters" data-multipleanswers="true" data-random="">
+<div class="para" id="OssMatters-1-1">Why is it advantageous for students and independent learners to engage with Open Source Software (OSS) projects? SELECT ALL THAT APPLY</div>
+<li data-component="answer" id="opensource_1_OssMatters_opt_a" data-correct=""><div class="para" id="OssMatters-2-1-1-1">OSS projects offer real-world software development experience.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters_opt_a"><div class="para" id="OssMatters-2-1-2-1">Engaging with OSS projects allows students and independent learners to work on real-world software development projects, gain practical experience, and contribute to widely-used software.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters_opt_b" data-correct=""><div class="para" id="OssMatters-2-2-1-1">OSS projects present unique challenges for developers due to their diverse nature, fostering an enriching learning experience.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters_opt_b"><div class="para" id="OssMatters-2-2-2-1">OSS projects often present unique challenges, such as collaborating with geographically dispersed teams and contributing to a diverse range of projects, which further enrich the learning experience for developers.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters_opt_c"><div class="para" id="OssMatters-2-3-1-1">Students often get paid internships by OSS companies for their work.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters_opt_c"><div class="para" id="OssMatters-2-3-2-1">This is not a guaranteed advantage for all students and independent learners.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters_opt_d"><div class="para" id="OssMatters-2-4-1-1">Students can claim partial ownership of the OSS projects they contribute to.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters_opt_d"><div class="para" id="OssMatters-2-4-2-1">Ownership in OSS projects works differently than in traditional proprietary software. While students couldn’t claim OSS Project’s ownership, they may gain recognition for their contributions.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="OssMatters2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="opensource_1_OssMatters2" data-multipleanswers="false" data-random="">
+<div class="para" id="OssMatters2-1-1">What type of software is generally more secure?</div>
+<li data-component="answer" id="opensource_1_OssMatters2_opt_a"><div class="para" id="OssMatters2-2-1-1-1">Proprietary, because proprietary source code is not open to the public and cannot be easily modified.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters2_opt_a"><div class="para" id="OssMatters2-2-1-2-1">Even though proprietary software’s source code is not shared with the public, it is not ensured that the security will be managed efficiently.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters2_opt_b"><div class="para" id="OssMatters2-2-2-1-1">Open source, because open source software is more transparent compared to proprietary software, allowing developers to respond to bugs more rapidly and efficiently.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters2_opt_b"><div class="para" id="OssMatters2-2-2-2-1">Despite the nature of open source that allows the public to access the source code, that doesn’t mean open-source software is more reliable and could still hold some security threats to users.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters2_opt_c"><div class="para" id="OssMatters2-2-3-1-1">Proprietary, because proprietary software is strictly managed by a single organization so that it will ensure the software’s security.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters2_opt_c"><div class="para" id="OssMatters2-2-3-2-1">Contrary to popular belief, this leads to more vulnerabilities as it is difficult for a single entity to keep track of every aspect of the product.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters2_opt_d"><div class="para" id="OssMatters2-2-4-1-1">Open source, because open source software needs a warranty to be protected from security threats.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters2_opt_d"><div class="para" id="OssMatters2-2-4-2-1">Open source software typically doesn’t come with a warranty, but licenses that grant users the freedom to view, modify, and distribute the source code.</div></li>
+<li data-component="answer" id="opensource_1_OssMatters2_opt_e" data-correct=""><div class="para" id="OssMatters2-2-5-1-1">While open-source software seems inherently more secure, both open-source software and proprietary software pose possible challenges to software security.</div></li>
+<li data-component="feedback" id="opensource_1_OssMatters2_opt_e"><div class="para" id="OssMatters2-2-5-2-1">Yes, while OSS can be considered to be more transparent, it isn’t inherently less secure than their proprietary counterparts!</div></li>
+</ul></div></div></article><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec_oss_what_it_is.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_oss_source_code.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
+</html>
